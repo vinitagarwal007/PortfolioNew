@@ -1,0 +1,27 @@
+[
+  {
+    "company": "Vulmiqi",
+    "website": "https://vulmiqi.com/",
+    "icon": "https://drive.google.com/file/d/1Ox3STM47nUWfHXE-nWmH-lsW50q4raTS/view?usp=drive_link",
+    "date": "July 2023 - December 2023",
+    "position": "Python Backend Developer",
+    "work": [
+      "Developed New Feature for Clients.",
+      "Deployed Advanced Security Features.",
+      "Maintained Major Seller Poleriks"
+    ]
+  },
+  {
+    "company": "FED",
+    "website": "https://fedkiit.com/",
+    "icon": "https://drive.google.com/file/d/1X2nbIk6_7d468kk_bOxPU1eZNygyILfw/view?usp=drive_link",
+    "date": "October 2021 - Ongoing",
+    "position": "Techical Executive",
+    "work": [
+        "Developed Professional Website",
+        "Deployed Dynamic Screen",
+        "Developed & Deployed Backend to AWS",
+        "Implemented Custom CI/CD using GitHooks"
+      ]
+  }
+]

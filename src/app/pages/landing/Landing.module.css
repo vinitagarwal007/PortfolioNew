@@ -1,0 +1,179 @@
+
+.Landing p{
+    cursor:pointer;
+}
+.Landing{
+    margin-top: 10vh;
+    height: 90vh;
+    width: 100vw;
+    padding-right: 10vw;
+    padding-left: 10vw;
+    padding-top: 10vh;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+.rightPartitionLanding{
+    display: flex;
+    position: relative;
+    height: fit-content;
+}
+.leftPartitionLanding{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.Landing::before{
+    background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0) 90%,#050816),url('./../../../../public/hero/herobg1.svg');
+    opacity: 0.6;
+    background-size: cover;
+    position: absolute;
+    content: '';
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+.line{
+    width: 0.5vw;
+    height: 70vh;
+    background: linear-gradient( rgba(141,94,252,1) 40%, rgba(255,255,255,0) 95%);
+    border-radius: 10px;
+}
+.circle{
+    width: 1.5vw;
+    height: 1.5vw;
+    margin-left: -100%;
+    border-radius: 50%;
+    background-color: #8D5EFC;
+}
+.textColor1{
+    color: #8D5EFC;
+}
+.textColorWhite{
+    color: white;
+}
+.heading{
+    font-size: 3.375rem;
+    font-family: Roboto, sans-serif;
+    font-weight:bolder
+}
+.headingDesc{
+    font-size: 1.75rem;
+    font-family: Roboto, sans-serif;
+}
+.headingHolder{
+    display: flex;
+    flex-direction: column;
+    margin-left: 4vw;
+    margin-top: 2vh;
+    justify-content: space-around;
+}
+.button{
+    position: relative;
+    text-align: center;
+    font-size: 2rem;
+    font-family: Roboto, sans-serif;
+    font-weight: 900;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    padding: 2vh 2vw 2vh 2vw;
+    border-radius: 15px;
+    border: none;
+    background: #8D5EFC;
+    border:#8D5EFC solid 2px;
+    transition: all 0.65s cubic-bezier(1.000, 0.000, 0.000, 1.000);
+}
+.button::after{
+    background: #8D5EFC;
+    content: '';
+    position: absolute;
+    transition: all 0.65s cubic-bezier(1.000, 0.000, 0.000, 1.000);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right:0; 
+    border-radius: 15px;
+    opacity: 1;
+    z-index: -1;
+}
+
+.button:hover {
+    color: #8D5EFC;
+    background: none;
+}
+.button:hover::after{
+    width: 0%; 
+}
+
+.buttonOutline{
+    background: none;
+    color:#8D5EFC;
+}
+.buttonOutline::after{
+    width: 0%;
+    left:0; 
+}
+
+.buttonOutline:hover {
+    color: white;
+    background: #8D5EFC;
+}
+.buttonOutline:hover::after{
+    width: 100%;
+    opacity: 1; 
+}
+
+.icon{
+    margin: 0vw 1vw 0vw 1vw;
+}
+.icon:hover{
+    border: 2px solid rgba(255, 255, 255, 0);
+}
+.hero{
+    width: auto;
+    height: 60vh;
+    z-index: 1;
+    align-self: center;
+    margin: 5px;
+    border: 1px white solid;
+    border-radius: 20px;
+}
+.heroContainer::before{
+    content: '';
+    background-image: linear-gradient(to right,rgba(255, 255, 255, 0),#8D5EFC,rgba(255, 255, 255, 0));
+    width: 200px;
+    height: 150%;
+    position: absolute;
+    animation: rotate 2s linear infinite;
+    align-self: center ;
+    transition: width .7s ease-in-out;
+}
+.heroContainer::after{
+    content: '';
+    inset: 4px;
+    position: absolute;
+    background: #050816;
+    border-radius: 20px;
+}
+.heroContainer{
+    display: flex;
+    justify-content: center;
+    position:relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.heroContainer:hover::before{
+    animation-play-state: paused;
+    background-color: #8D5EFC;
+    width: 150%;
+}
+@keyframes rotate{
+    100%{
+        transform: rotate(0deg);
+    }
+    0%{
+        transform: rotate(350deg);
+    }
+}

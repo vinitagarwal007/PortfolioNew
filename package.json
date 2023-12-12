@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "eslint": "8.43.0",
-    "eslint-config-next": "13.4.7",
-    "next": "13.4.7",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "eslint-config-next": "^14.0.4",
+    "next": "^14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-rotating-text": "^1.4.1",
+    "react-vertical-timeline-component": "^3.6.0"
   }
 }

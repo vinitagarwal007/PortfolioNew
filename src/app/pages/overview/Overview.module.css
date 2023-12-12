@@ -1,0 +1,48 @@
+.Overview {
+    height: 90vh;
+    width: 100vw;
+    padding-right: 10vw;
+    padding-left: 10vw;
+    padding-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #03050D;
+}   
+
+.header {
+    color: #727272;
+    font-family: Roboto,sans-serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.header2 {
+    color: #FFF;
+    font-family: Roboto,sans-serif;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+
+}
+.description{
+    width: 60vw;
+    margin-top: 20px;
+    color: #727272;
+    text-align: justify;
+    font-family: Roboto,sans-serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 2.1875rem */
+}
+
+.cardholder{
+    display: flex;
+    justify-content:space-evenly;
+    width: 80vw;
+    perspective: 1000px;
+
+}
