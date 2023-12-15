@@ -20,5 +20,3 @@ This project is deployed on vercel.
 
 You can visit the website to see it in action, Hope you like it !!!
 [Open Vinit Agarwal's Portfolio](https://vinitagarwal.vercel.app)
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
