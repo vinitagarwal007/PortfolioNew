@@ -8,6 +8,7 @@
     flex-direction: column;
     background-color: #03050D;
     font-family: Roboto,sans-serif;
+    cursor:default;
 }   
 .header {
     color: #727272;
@@ -57,7 +58,6 @@
 }
 .timelineElementDate{
     color: #FFF;
-    width: auto;
 }
 @media (max-width: 480px) {
     .work{
