@@ -50,8 +50,9 @@
         width: 80vw;
     }
     .cardholder{
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 10vw;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8vw;
+        justify-content: center;
     }
 }

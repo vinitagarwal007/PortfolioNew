@@ -57,8 +57,12 @@
 }
 .timelineElementDate{
     color: #FFF;
+    width: auto;
 }
 @media (max-width: 480px) {
+    .work{
+        padding-top: 10vh;
+    }
     .timelineElementContent h1{
         color: #FFF;
         font-size: 1.2rem;
@@ -69,5 +73,8 @@
     }
     .timelineElementContent li{
         font-size: 0.8rem;
+    }
+    .timelineContainer{
+        margin-top: 3vh;
     }
 }
