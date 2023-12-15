@@ -11,6 +11,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition-property: width,height;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+.card:hover{
+    width: 16vw;
+    height: 36vh;
 }
 .titleText{
     width: 100%;
@@ -25,4 +32,16 @@
     width: 50%;
     height: 50%;
     align-self: center;
+}
+@media (max-width: 480px) {
+    .card{
+        width: 35vw;
+        height: 22vh;
+        margin: 0px;
+        box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.10);
+    }
+    .card:hover{
+        width: 37vw;
+        height: 23vh;
+    }
 }

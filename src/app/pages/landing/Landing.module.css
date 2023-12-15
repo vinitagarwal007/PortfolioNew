@@ -4,7 +4,7 @@
 }
 .Landing{
     margin-top: 10vh;
-    height: 90vh;
+    height: auto;
     width: 100vw;
     padding-right: 10vw;
     padding-left: 10vw;
@@ -169,11 +169,68 @@
     background-color: #8D5EFC;
     width: 150%;
 }
+.break{
+    display: none;
+}
 @keyframes rotate{
     100%{
         transform: rotate(0deg);
     }
     0%{
         transform: rotate(350deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .Landing{
+        flex-direction: column-reverse;
+        margin-top: 2vh;
+    }
+    .line{
+        width: 3vw;
+        height: 50vh;
+        background-image: linear-gradient( rgba(141,94,252,1) 20%, rgba(255,255,255,0) 95%);
+    }
+    .circle{
+        width: 6vw;
+        height: 6vw;
+        margin-left: -55%;
+    }
+    .heading{
+        font-size: 3rem;
+    }
+    .headingDesc{
+        font-size: 1.3rem;
+    }
+    .name{
+        font-size: 2.5rem;
+    }
+    .break{
+        display: block;
+    }
+    .hero{
+        height: 30vh;
+        margin: 6px;
+    }
+    .heroContainer{
+        width: fit-content;
+        align-self: center;
+    }
+    .heroContainer::before{
+        width: 200px;
+    }
+    .heroContainer::after{
+        inset: 6px;
+    }
+    .leftPartitionLanding{
+        margin-bottom:2rem;
+    }
+    .button{
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        padding: 2vh 2vw 2vh 2vw;
+    }
+    .icon{
+        margin: 0vw 2vw 0vw 2vw;
     }
 }

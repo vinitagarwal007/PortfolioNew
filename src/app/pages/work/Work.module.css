@@ -1,16 +1,16 @@
 .work {
-    height: 90vh;
+    height: auto;
     width: 100vw;
     padding-right: 10vw;
     padding-left: 10vw;
-    padding-top: 5vh;
+    padding-top: 15vh;
     display: flex;
     flex-direction: column;
     background-color: #03050D;
+    font-family: Roboto,sans-serif;
 }   
 .header {
     color: #727272;
-    font-family: Roboto,sans-serif;
     font-size: 1.2rem;
     font-style: normal;
     font-weight: 400;
@@ -19,19 +19,10 @@
 
 .header2 {
     color: #FFF;
-    font-family: Roboto,sans-serif;
     font-size: 3rem;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
-}
-.timelineContainer{
-    overflow: scroll;
-    overflow-x: hidden;
-    margin-top: 5vh;
-}
-.timelineContainer::-webkit-scrollbar{
-    display: none;
 }
 .timelineElementIcon{
     width: 100%;
@@ -40,6 +31,9 @@
     padding: 0px;
     background-color: #FFF;    
     border-radius: 50%;
+}
+.timelineElementIcon:hover{
+    cursor: pointer;
 }
 
 .timelineElementContent{
@@ -54,10 +48,26 @@
     color: #8D5EFC;
     font-size: 1.5rem;
 }
+.timelineElementContent h2:hover{
+    cursor: pointer;
+}
 .timelineElementContentList{
     padding: 1rem;
     color: whitesmoke;
 }
 .timelineElementDate{
     color: #FFF;
+}
+@media (max-width: 480px) {
+    .timelineElementContent h1{
+        color: #FFF;
+        font-size: 1.2rem;
+    }
+    .timelineElementContent h2{
+        color: #8D5EFC;
+        font-size: 1.2rem;
+    }
+    .timelineElementContent li{
+        font-size: 0.8rem;
+    }
 }

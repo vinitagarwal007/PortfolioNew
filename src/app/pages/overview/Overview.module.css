@@ -1,5 +1,5 @@
 .Overview {
-    height: 90vh;
+    height: auto;
     width: 100vw;
     padding-right: 10vw;
     padding-left: 10vw;
@@ -44,5 +44,14 @@
     justify-content:space-evenly;
     width: 80vw;
     perspective: 1000px;
-
+}
+@media (max-width: 480px) {
+    .description{
+        width: 80vw;
+    }
+    .cardholder{
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10vw;
+    }
 }

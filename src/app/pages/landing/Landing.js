@@ -16,7 +16,7 @@ export default function Landing() {
             <div>
               <p className={styles.heading}>
                 Hi, I’m{" "}
-                <span className={`${styles.textColor1} ${styles.name}`}>
+                <br className={styles.break}/><span className={`${styles.textColor1} ${styles.name}`}>
                   Vinit Agarwal
                 </span>
               </p>
@@ -35,7 +35,7 @@ export default function Landing() {
               </p>
             </div>
             <div>
-              <button className={styles.button}>Hire Me</button>
+              <button className={styles.button}>Resume</button>
               <button className={`${styles.button} ${styles.buttonOutline}`}>
                 Let’s Talk
               </button>
