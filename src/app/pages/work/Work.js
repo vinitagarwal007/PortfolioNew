@@ -22,14 +22,13 @@ export default function Work({innerRef}) {
               dateClassName={styles.timelineElementDate}
               contentStyle={{ backgroundColor: "#181542" }}
               icon={
-                <Image
+                <img
                   className={styles.timelineElementIcon}
-                  fill={true}
                   src={driveToImage(e.icon)}
                   alt="Icon"
                   sizes="33vw"
 
-                ></Image>
+                ></img>
               }
               iconOnClick={()=>{window.open(e.website)}}
               visible={true}
