@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import styles from "./Contact.module.css";
 import Link from "next/link";
 function ContactForm() {
   const [state, handleSubmit] = useForm("xzbnpgkq");
+  const [mailurl,setMailUrl] = useState("")
   if (state.succeeded) {
     return <p>Thanks for joining!</p>;
   }
   const address =
     "KP9C, Kalinga Institute of Industrial Technology, Patia, Khorda, Bhubaneswar - 751024";
-    const email = "vinitagarwal.garg@gmail.com"
-    const mailUrl = window.innerWidth < 480?`mailto:${email}`:`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=Contacting for Enquiry&body=Hi, Vinit`
-  return (
+  const email = "vinitagarwal.garg@gmail.com";
+  useEffect(()=>{
+    setMailUrl(    window.innerWidth < 480
+      ? `mailto:${email}`
+      : `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=Contacting for Enquiry&body=Hi, Vinit`;
+  )
+  },[])
+   return (
     <>
       <div className={styles.ContactForm}>
         <label className={styles.header}>GET IN TOUCH</label>
@@ -47,9 +53,12 @@ function ContactForm() {
             ></iframe>
             <label>---- OR -----</label>
             <div className={styles.addressBox}>
-              <p style={{fontWeight:"bold"}}>Mail Me at:</p>
-              <p>{address}</p><br/>
-              <Link href={mailUrl} target="_blank">{email}</Link>
+              <p style={{ fontWeight: "bold" }}>Mail Me at:</p>
+              <p>{address}</p>
+              <br />
+              <Link href={mailUrl} target="_blank">
+                {email}
+              </Link>
             </div>
           </div>
         </div>

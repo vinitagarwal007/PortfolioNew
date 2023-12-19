@@ -7,7 +7,9 @@ import styles from "./Work.module.css";
 import Image from "next/image";
 import { driveToImage } from "@/app/utils/drivelink";
 import workData from "@/data/work.json";
+import { useRouter } from "next/router";
 export default function Work({innerRef}) {
+  const router = useRouter()
   return (
     <div className={styles.work} ref={innerRef}>
       <label className={styles.header}>WHAT HAVE I DONE</label>
@@ -31,12 +33,12 @@ export default function Work({innerRef}) {
 
                 ></Image>
               }
-              iconOnClick={()=>{window.open(e.website)}}
+              iconOnClick={()=>{router.push(e.website)}}
               visible={true}
             >
               <div className={styles.timelineElementContent}>
                 <h1>{e.position}</h1>
-                <h2 onClick={()=>{window.open(e.website)}}>{e.company}</h2>
+                <h2 onClick={()=>{router.push(e.website)}}>{e.company}</h2>
                 <ul className={styles.timelineElementContentList}>
                   {e.work.map((e,idx)=>{
                     return <li key={idx}>{e}</li>
