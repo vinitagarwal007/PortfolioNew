@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useForm, ValidationError } from "@formspree/react";
 import styles from "./Contact.module.css";
 import Link from "next/link";
 function ContactForm() {
-  const [state, handleSubmit] = useForm("xzbnpgkq");
   const [mailUrl, setMailUrl] = useState("");
-  if (state.succeeded) {
-    return <p>Thanks for joining!</p>;
-  }
   const address =
     "KP9C, Kalinga Institute of Industrial Technology, Patia, Khorda, Bhubaneswar - 751024";
   const email = "vinitagarwal.garg@gmail.com";
@@ -24,24 +19,19 @@ function ContactForm() {
         <label className={styles.header}>GET IN TOUCH</label>
         <label className={styles.header2}>Contact.</label>
         <div className={styles.formHolder}>
-          <form onSubmit={handleSubmit} className={styles.form}>
+          <form
+            action="https://form2channel.com/?apikey=WIxKSYTpxkkWQiuvY2Ur49cBlAOirK"
+            method="POST"
+            enctype="multipart/form-data"
+            className={styles.form}
+          >
             <label htmlFor="name">Name</label>
             <input id="text" type="name" name="name" />
             <label htmlFor="email">Email Address</label>
             <input id="email" type="email" name="email" />
-            <ValidationError
-              prefix="Email"
-              field="email"
-              errors={state.errors}
-            />
             <label htmlFor="email">Message</label>
             <textarea id="message" name="message" />
-            <ValidationError
-              prefix="Message"
-              field="message"
-              errors={state.errors}
-            />
-            <button type="submit" disabled={state.submitting}>
+            <button type="submit">
               Submit
             </button>
           </form>
