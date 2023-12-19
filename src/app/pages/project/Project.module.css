@@ -1,9 +1,9 @@
-.Overview {
+.Project {
     height: auto;
     width: 100vw;
     padding-right: 10vw;
     padding-left: 10vw;
-    padding-top: 5vh;
+    padding-top: 15vh;
     display: flex;
     flex-direction: column;
     background-color: #03050D;
@@ -37,15 +37,31 @@
     font-size: 1.2rem;
     font-style: normal;
     font-weight: 600;
-    line-height: 140%; 
+    line-height: 140%; /* 2.1875rem */
 }
 
 .cardholder{
-    display: flex;
-    justify-content:space-evenly;
+    align-items: self-start;
     width: 80vw;
+    height: 60vh;
     perspective: 1000px;
 }
+.Slider{
+    width: 80vw;
+    display: flex;
+    padding: 0.5rem;
+    justify-content: center;
+}
+.Slider li button::before{
+    /* background-color: red; */
+    color: white;
+    font-size: 0.4rem;
+    text-align: center;
+    margin: 0px;
+    background-color: #727272;
+    border-radius: 50% ;
+}
+
 @media (max-width: 480px) {
     .description{
         width: 80vw;
@@ -55,5 +71,8 @@
         flex-wrap: wrap;
         gap: 8vw;
         justify-content: center;
+    }
+    .Slider{
+        width: 70vw;
     }
 }

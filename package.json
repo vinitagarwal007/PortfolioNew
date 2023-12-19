@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formspree/react": "^2.5.1",
     "eslint": "8.43.0",
     "eslint-config-next": "^14.0.4",
     "next": "^14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-rotating-text": "^1.4.1",
-    "react-vertical-timeline-component": "^3.6.0"
+    "react-slick": "^0.29.0",
+    "react-vertical-timeline-component": "^3.6.0",
+    "slick-carousel": "^1.8.1"
   }
 }

@@ -57,7 +57,11 @@
     width: 100%;
     height: 4px;
 }
-
+.navbarElement.selected::after{
+    opacity: 1;
+    width: 100%;
+    height: 4px;
+}
 .navbarMain:hover {
     animation: navbarMain 0.5s forwards;
 }

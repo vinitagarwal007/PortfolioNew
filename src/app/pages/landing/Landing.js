@@ -3,11 +3,11 @@ import Image from "next/image";
 import hero from "../../../../public/hero/hero.png";
 import { instagramIcon, githubIcon, lindedinIcon } from "../../../../public/icon/icon";
 import ReactRotatingText from 'react-rotating-text';
-export default function Landing() {
+export default function Landing({innerRef}) {
     
   return (
     <>
-      <div className={styles.Landing}>
+      <div className={styles.Landing} ref={innerRef}>
         <div className={styles.rightPartitionLanding}>
           <div className={styles.line}>
             <div className={styles.circle}></div>
@@ -41,15 +41,15 @@ export default function Landing() {
               </button>
             </div>
             <div className={styles.iconContainer}>
-                <Image className={styles.icon} src={githubIcon} />
-                <Image className={styles.icon} src={instagramIcon} />
-                <Image className={styles.icon} src={lindedinIcon} />
+                <Image className={styles.icon} alt="githudIcon" src={githubIcon} />
+                <Image className={styles.icon} alt="instagramIcon" src={instagramIcon} />
+                <Image className={styles.icon} alt="linkedInIcon" src={lindedinIcon} />
             </div>
           </div>
         </div>
         <div className={styles.leftPartitionLanding} id="left">
           <div className={styles.heroContainer}>
-            <Image className={styles.hero} src={hero} id="image" />
+            <Image className={styles.hero} src={hero} alt="heroImg" id="image" />
           </div>
         </div>
       </div>

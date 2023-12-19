@@ -2,10 +2,10 @@ import styles from './Overview.module.css'
 import Card from './components/Card'
 import '../../../../public/icon/icon'
 import { nodeJsIcon, pythonIcon, reactIcon, visualStudioIcon } from '../../../../public/icon/icon'
-export default function Overview(){
+export default function Overview({innerRef}){
     return (
       <>
-        <div className={styles.Overview}>
+        <div className={styles.Overview} ref={innerRef}>
           <label className={styles.header}>INTRODUCTION</label>
           <label className={styles.header2}>Overview.</label>
           <p className={styles.description}>

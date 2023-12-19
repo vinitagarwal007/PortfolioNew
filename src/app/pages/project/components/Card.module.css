@@ -1,0 +1,98 @@
+.card {
+    width: 20vw;
+    height: 50vh;
+    background-color: #2D1F54;
+    border: white solid 1px;
+    border-radius: 20px;
+    padding: 20px;
+    padding-bottom: 5px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    transition-property: width, height;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    font-family: Roboto Mono, sans-serif;
+}
+
+.titleText {
+    width: 100%;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: bolder;
+    line-height: normal;
+}
+
+.titleDesc {
+    font-size: small;
+    width: 100%;
+}
+
+.titleBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.tagBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+}
+.tag{
+    align-self:self-start;
+    color: green;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.githubLink{
+    width: 3vw;
+    object-fit: fill;
+    align-items: center;
+    align-self: center;
+}
+.image {
+    width: 100%;
+    height: 50%;
+    object-fit: fill;
+}
+@media (max-width: 480px) {
+    .card {
+        width: 60vw;
+        height: 40vh;
+        margin: 1vw;
+        align-items: start;
+    }
+    .card:hover {
+        width: 60vw;
+        height: 40vh;
+    }
+    .image {
+        width: 100%;
+        height: 50%;
+        align-self: center;
+        margin-top: 0px;
+        align-self: flex-start;
+        
+    }
+    .titleText {
+        font-size: 1rem;
+    }
+    .githubLink{
+        width: 10vw;
+    }
+    .tagBox{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .textBox{
+        width: 100%;
+    }
+}
