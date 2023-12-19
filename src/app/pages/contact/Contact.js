@@ -4,20 +4,21 @@ import styles from "./Contact.module.css";
 import Link from "next/link";
 function ContactForm() {
   const [state, handleSubmit] = useForm("xzbnpgkq");
-  const [mailurl,setMailUrl] = useState("")
+  const [mailurl, setMailUrl] = useState("");
   if (state.succeeded) {
     return <p>Thanks for joining!</p>;
   }
   const address =
     "KP9C, Kalinga Institute of Industrial Technology, Patia, Khorda, Bhubaneswar - 751024";
   const email = "vinitagarwal.garg@gmail.com";
-  useEffect(()=>{
-    setMailUrl(    window.innerWidth < 480
-      ? `mailto:${email}`
-      : `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=Contacting for Enquiry&body=Hi, Vinit`;
-  )
-  },[])
-   return (
+  useEffect(() => {
+    setMailUrl(
+      window.innerWidth < 480
+        ? `mailto:${email}`
+        : `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=Contacting for Enquiry&body=Hi, Vinit`
+    );
+  }, []);
+  return (
     <>
       <div className={styles.ContactForm}>
         <label className={styles.header}>GET IN TOUCH</label>
