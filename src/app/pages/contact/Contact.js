@@ -4,7 +4,7 @@ import styles from "./Contact.module.css";
 import Link from "next/link";
 function ContactForm() {
   const [state, handleSubmit] = useForm("xzbnpgkq");
-  const [mailurl, setMailUrl] = useState("");
+  const [mailUrl, setMailUrl] = useState("");
   if (state.succeeded) {
     return <p>Thanks for joining!</p>;
   }
