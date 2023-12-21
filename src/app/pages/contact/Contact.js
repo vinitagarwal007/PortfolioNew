@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Contact.module.css";
 import Link from "next/link";
-function ContactForm() {
+function ContactForm({innerRef}) {
   const [mailUrl, setMailUrl] = useState("");
   const address =
     "KP9C, Kalinga Institute of Industrial Technology, Patia, Khorda, Bhubaneswar - 751024";
@@ -15,7 +15,7 @@ function ContactForm() {
   }, []);
   return (
     <>
-      <div className={styles.ContactForm}>
+      <div className={styles.ContactForm} ref={innerRef}>
         <label className={styles.header}>GET IN TOUCH</label>
         <label className={styles.header2}>Contact.</label>
         <div className={styles.formHolder}>
