@@ -43,7 +43,6 @@
 .cardholder{
     align-items: center;
     width: 80vw;
-    height: 60vh;
     perspective: 1000px;
     display: flex;
     justify-content: center;
@@ -83,5 +82,13 @@
     }
     .Slider{
         width: 70vw;
+    }
+}
+@media (max-width: 820px) {
+    .description{
+        width: 80vw;
+    }
+    .Slider{
+        width: 80vw;
     }
 }

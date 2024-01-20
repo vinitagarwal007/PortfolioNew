@@ -205,18 +205,6 @@
         height: 6vw;
         margin-left: -55%;
     }
-    .heading{
-        font-size: 2.3rem;
-    }
-    .headingDesc{
-        font-size: 1.2rem;
-    }
-    .name{
-        font-size: 2.5rem;
-    }
-    .break{
-        display: block;
-    }
     .hero{
         height: 30vh;
         margin: 6px;
@@ -242,4 +230,41 @@
     .icon{
         margin: 0vw 2vw 0vw 2vw;
     }
+}
+@media (max-width: 820px) {
+    .Landing{
+        margin-top: 5vh;
+    }
+    .heading{
+        font-size: 2.3rem;
+    }
+    .headingDesc{
+        font-size: 1.3rem;
+    }
+    .name{
+        font-size: 2.5rem;
+    }
+    .break{
+        display: block;
+    }
+    .hero{
+        height: 35vw;
+        margin: 6px;
+    }
+    .button{
+        font-size: 1.1rem;
+        margin-right:5%;
+        padding: 1.2vh 1.2vw;
+    }
+    .icon{
+        margin: 0vw 2vw 0vw 2vw;
+    }
+    .line{
+        width: 0.5vw;
+        height: 28vh;
+        background: linear-gradient( rgba(141,94,252,1) 40%, rgba(255,255,255,0) 95%);
+        border-radius: 10px;
+    }
+
+    
 }

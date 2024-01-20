@@ -48,3 +48,18 @@
         font-size: 1rem;
     }
 }
+@media (max-width: 820px) {
+    .card{
+        width: 16vw;
+        height: 14vh;
+        margin: 1%;
+        box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.10);
+    }
+    .card:hover{
+        width: 17vw;
+        height: 15vh;
+    }
+    .titleText{
+        font-size: 1rem;
+    }
+}

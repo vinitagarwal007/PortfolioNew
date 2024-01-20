@@ -8,6 +8,8 @@
     justify-content: center;
     animation: main-animation 4s forwards linear;
     transition: all 0.5 ease-in-out;
+    position: absolute;
+    z-index: 3;
 }
 
 .centerAnimation {
@@ -32,7 +34,6 @@
     position: relative;
     font-size: 3rem;
     animation: text-animation 2s forwards linear;
-
 }
 
 .centerAnimation::before {
@@ -115,5 +116,11 @@
     }
     100% {
         opacity: 100%;
+    }
+}
+
+@media (max-width:480px) {
+    .centerAnimation{
+        padding: 10%;
     }
 }

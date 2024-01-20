@@ -57,3 +57,11 @@
         justify-content: center;
     }
 }
+@media (max-width: 820px) {
+    .description{
+        width: 80vw;
+    }
+    .cardholder{
+        margin-top: 5%;
+    }
+}

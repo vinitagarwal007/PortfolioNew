@@ -28,7 +28,7 @@ export default function Home({ Component, pageProps }) {
   const [splash,setSplash] = useState(true)
   setTimeout(()=>{
     setSplash(false)
-  },[4000])
+  },[2000])
   return (
     <>
       <Splash />

@@ -102,7 +102,7 @@
     margin-left: 4%;
 }
 @media (max-width: 480px){
-    .formHolder .mapHolder iframe{
+    .formHolder .mapHolder {
         display: none;
     }
     .formHolder .mapHolder{
@@ -140,6 +140,48 @@
     .form textarea{
         border-radius: 10px;
         height: 15vh;
+        margin: 2vw;
+    }
+    .form button{
+        font-size: 1rem;
+        margin: 2vw;
+    }
+}
+@media (max-width: 820px){
+    .ContactForm{
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+        height: auto;
+    }
+    .formHolder .mapHolder {
+        display: none;
+    }
+    .formHolder{
+        width: 100%;
+        height: auto;
+    }
+    .form{
+        width: 100%;
+        height: auto;
+    }
+    .form label{
+        font-size: 1rem;
+        font-weight: bold;
+        margin: 2vw;
+    }
+    .form input{
+        border-radius: 10px;
+        height: 4vh;
+        background-color: #161032;
+        border: transparent 0px solid;
+        padding: 10px;
+        font-size: 1rem;
+        margin: 2vw;
+
+    }
+    .form textarea{
+        border-radius: 10px;
+        height: 10vh;
         margin: 2vw;
     }
     .form button{

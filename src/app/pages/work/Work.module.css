@@ -81,3 +81,14 @@
         font-size: 2rem;
     }
 }
+@media (max-width: 820px) {
+    .work{
+        padding-top: 6vh;
+    }
+    .timelineContainer{
+        margin-top: 3vh;
+    }
+    .header2 {
+        font-size: 2rem;
+    }
+}

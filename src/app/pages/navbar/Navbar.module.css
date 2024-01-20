@@ -6,7 +6,7 @@
     flex-direction: row;
     justify-content: space-between;
     position: fixed;
-    z-index: 10;
+    z-index: 2;
     cursor:default;
 }
 
@@ -75,12 +75,17 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
     .navbarElementHolder {
         display: none;
     }
 
     .navbar {
         justify-content: center;
+    }
+}
+@media (max-width: 820px) {
+    .navbarElement {
+        margin: 1rem 0.5rem;
     }
 }
