@@ -22,7 +22,7 @@ function ContactForm({innerRef}) {
           <form
             action="https://form2channel.com/?apikey=WIxKSYTpxkkWQiuvY2Ur49cBlAOirK"
             method="POST"
-            enctype="multipart/form-data"
+            encType="multipart/form-data"
             className={styles.form}
           >
             <label htmlFor="name">Name</label>

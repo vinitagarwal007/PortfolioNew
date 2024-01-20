@@ -2,7 +2,6 @@ import { githubIcon } from "../../../../../public/icon/icon";
 import styles from "./Card.module.css";
 import Image from "next/image";
 export default function Card({ image, title, desc, tag, github }) {
-  console.log(github);
   return (
     <div className={styles.cardWrap}>
       <div className={styles.card}>

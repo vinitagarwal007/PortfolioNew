@@ -2,7 +2,6 @@ import styles from "./Navbar.module.css";
 import Link from "next/link";
 export default function ({ selection,homeRef,workRef,aboutRef,contactRef }) {
   const navButtonOnClick = (e) => {
-    // console.log(e.target.name)
     switch (e.target.name) {
       case "home":
         homeRef.current.scrollIntoView()

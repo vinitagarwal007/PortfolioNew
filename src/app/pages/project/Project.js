@@ -52,8 +52,9 @@ export default function Project({ innerRef }) {
         <br></br>
         <div className={styles.cardholder}>
           <Slider {...slickSettings} className={styles.Slider}>
-            {projectData.map((e) => (
+            {projectData.map((e,idk) => (
               <Card
+                key={idk}
                 image={e.img}
                 title={e.title}
                 desc={e.desc}
