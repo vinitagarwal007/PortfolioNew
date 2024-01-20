@@ -35,7 +35,7 @@ export default function Landing({innerRef,contactRef}) {
               </p>
             </div>
             <div>
-              <a target="_blank" href="https://drive.google.com/uc?export=download&id=1O2QuGhC27nJWt_5Z6CVi7_ILPmyZI6LE"><button className={styles.button}>Resume</button></a>
+              <a target="_blank" href="https://drive.google.com/file/d/1O2QuGhC27nJWt_5Z6CVi7_ILPmyZI6LE/view?usp=drive_link"><button className={styles.button}>Resume</button></a>
               <button className={`${styles.button} ${styles.buttonOutline}`} onClick={()=>{
                 contactRef.current.scrollIntoView()
               }}>
