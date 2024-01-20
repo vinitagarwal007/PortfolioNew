@@ -106,23 +106,32 @@
         height: 25vh;
         align-items: start;
     }
+    .titleText {
+        font-size: 1rem;
+    }
+}
+@media (max-width: 1180px) {
+    .card {
+        width: 25vw;
+        height: 40vh;
+        align-items: start;
+    }
+    .titleDesc{
+        font-size: 1rem;
+    }
     .image {
         width: 100%;
         align-self: center;
         margin-top: 0px;
         align-self: flex-start;
-        
     }
     .titleText {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
     .githubLink{
         width: 5vw;
     }
     .tagBox{
-        width: 100%;
-    }
-    .textBox{
         width: 100%;
     }
 }

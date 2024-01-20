@@ -264,7 +264,37 @@
         height: 28vh;
         background: linear-gradient( rgba(141,94,252,1) 40%, rgba(255,255,255,0) 95%);
         border-radius: 10px;
+    }   
+}
+@media (max-width: 1180px) {
+    .Landing{
+        margin-top: 5vh;
     }
-
-    
+    .heading{
+        font-size: 3rem;
+    }
+    .headingDesc{
+        font-size: 1.6rem;
+    }
+    .name{
+        font-size: 3rem;
+    }
+    .hero{
+        height: 28vw;
+        margin: 6px;
+    }
+    .button{
+        font-size: 1.3rem;
+        margin-right: 4%;
+        padding: 1.2vh 1.2vw;
+    }
+    .icon{
+        margin: 0vw 2vw;
+    }
+    .line{
+        width: 0.5vw;
+        height: 40vh;
+        background: linear-gradient( rgba(141,94,252,1) 40%, rgba(255,255,255,0) 95%);
+        border-radius: 10px;
+    }   
 }
