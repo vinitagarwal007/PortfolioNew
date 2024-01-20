@@ -7,6 +7,7 @@ import Project from "./pages/project/Project";
 import useElementOnScreen from "@/app/hooks/useElementOnScreen";
 import { useEffect, useState, useRef } from "react";
 import ContactForm from "./pages/contact/Contact";
+import Splash from "./pages/spash/Splash";
 export default function Home({ Component, pageProps }) {
   const options = {
     root: null,
@@ -24,20 +25,27 @@ export default function Home({ Component, pageProps }) {
     if (workIsVisible) setSelection(3);
     if (contactIsVisible) setSelection(4);
   }, [homeIsVisible, aboutIsVisible, workIsVisible, contactIsVisible]);
+  const [splash,setSplash] = useState(true)
+  setTimeout(()=>{
+    setSplash(false)
+  },[4000])
   return (
     <>
-      <Navbar
-        selection={selection}
-        homeRef={homeRef}
-        aboutRef={aboutRef}
-        workRef={workRef}
-        contactRef={contactRef}
-      ></Navbar>
-      <Landing innerRef={homeRef} contactRef={contactRef}></Landing>
-      <Overview innerRef={aboutRef}></Overview>
-      <Work innerRef={workRef}></Work>
-      <Project></Project>
-      <ContactForm innerRef={contactRef}></ContactForm>
+      <Splash />
+      {!splash &&<>
+        <Navbar
+          selection={selection}
+          homeRef={homeRef}
+          aboutRef={aboutRef}
+          workRef={workRef}
+          contactRef={contactRef}
+        ></Navbar>
+        <Landing innerRef={homeRef} contactRef={contactRef}></Landing>
+        <Overview innerRef={aboutRef}></Overview>
+        <Work innerRef={workRef}></Work>
+        <Project></Project>
+        <ContactForm innerRef={contactRef}></ContactForm>
+      </>}
     </>
   );
 }
