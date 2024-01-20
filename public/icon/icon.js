@@ -8,6 +8,7 @@ import visualStudioIcon from './visual_studio.svg'
 import pythonIcon from './python.svg'
 import reactIcon from './React.svg'
 import vulmiqiIcon from './vulmiqi.svg'
+import mailIcon from './mail.svg'
 
 export {
     githubIcon,
@@ -19,5 +20,6 @@ export {
     visualStudioIcon,
     pythonIcon,
     reactIcon,
-    vulmiqiIcon
+    vulmiqiIcon,
+    mailIcon
 }

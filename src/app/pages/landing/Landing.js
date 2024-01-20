@@ -1,7 +1,7 @@
 import styles from "./Landing.module.css";
 import Image from "next/image";
 import hero from "../../../../public/hero/hero.png";
-import { instagramIcon, githubIcon, lindedinIcon } from "../../../../public/icon/icon";
+import { instagramIcon, githubIcon, lindedinIcon, mailIcon } from "../../../../public/icon/icon";
 import ReactRotatingText from 'react-rotating-text';
 export default function Landing({innerRef,contactRef}) {
     
@@ -44,7 +44,7 @@ export default function Landing({innerRef,contactRef}) {
             </div>
             <div className={styles.iconContainer}>
                 <a href="https://github.com/vinitagarwal007" target="_blank"><Image className={styles.icon} alt="githudIcon" src={githubIcon} /></a>
-                <a href="https://instagram.com/vinit_agarwal007" target="_blank"><Image className={styles.icon} alt="instagramIcon" src={instagramIcon} /></a>
+                <a href="mailto:vinitagarwal.garg@gmail.com" target="_blank"><Image className={styles.icon} alt="instagramIcon" src={mailIcon} /></a>
                 <a href="https://linkedin.com/in/vinit-agarwal007" target="_blank"><Image className={styles.icon} alt="linkedInIcon" src={lindedinIcon} /></a>
             </div>
           </div>
