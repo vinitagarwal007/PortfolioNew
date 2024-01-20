@@ -46,6 +46,14 @@
     width: 80vw;
     perspective: 1000px;
 }
+@media (max-width: 1180px) {
+    .description{
+        width: 80vw;
+    }
+    .cardholder{
+        margin-top: 5%;
+    }
+}
 @media (max-width: 480px) {
     .description{
         width: 80vw;
@@ -55,13 +63,5 @@
         flex-wrap: wrap;
         gap: 8vw;
         justify-content: center;
-    }
-}
-@media (max-width: 1180px) {
-    .description{
-        width: 80vw;
-    }
-    .cardholder{
-        margin-top: 5%;
     }
 }

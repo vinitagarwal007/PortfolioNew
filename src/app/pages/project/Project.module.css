@@ -69,7 +69,14 @@
     background-color: #727272;
     border-radius: 50% ;
 }
-
+@media (max-width: 820px) {
+    .description{
+        width: 80vw;
+    }
+    .Slider{
+        width: 80vw;
+    }
+}
 @media (max-width: 480px) {
     .description{
         width: 80vw;
@@ -82,13 +89,5 @@
     }
     .Slider{
         width: 70vw;
-    }
-}
-@media (max-width: 820px) {
-    .description{
-        width: 80vw;
-    }
-    .Slider{
-        width: 80vw;
     }
 }
