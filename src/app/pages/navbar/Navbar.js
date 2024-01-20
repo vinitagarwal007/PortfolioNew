@@ -54,7 +54,7 @@ export default function ({ selection,homeRef,workRef,aboutRef,contactRef }) {
         >
           Work
         </button>
-        <Link href="/" className={`${styles.navbarElement}`}>
+        <Link href="https://drive.google.com/file/d/1O2QuGhC27nJWt_5Z6CVi7_ILPmyZI6LE/view?usp=drive_link" className={`${styles.navbarElement}`}>
           Resume
         </Link>
         <button
