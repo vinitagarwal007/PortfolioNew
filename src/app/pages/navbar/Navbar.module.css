@@ -39,6 +39,8 @@
     font-family: Inter;
     color: white;
     width: fit-content;
+    background-color: transparent;
+    border-width: 0px;
 }
 
 .navbarElement::after {

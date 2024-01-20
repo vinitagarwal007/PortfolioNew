@@ -41,17 +41,26 @@
 }
 
 .cardholder{
-    align-items: self-start;
+    align-items: center;
     width: 80vw;
     height: 60vh;
     perspective: 1000px;
-}
-.Slider{
-    width: 80vw;
     display: flex;
-    padding: 0.5rem;
     justify-content: center;
 }
+.Slider{
+    width: 100%;
+    display: flex;
+    padding: 0.5rem;
+    justify-content: space-evenly;
+}
+.Slider > div{
+    display: grid;
+    width: auto;
+    place-items: center;
+    padding: 1%;
+}
+
 .Slider li button::before{
     /* background-color: red; */
     color: white;
@@ -70,7 +79,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 8vw;
-        justify-content: center;
+        justify-content: space-around;
     }
     .Slider{
         width: 70vw;

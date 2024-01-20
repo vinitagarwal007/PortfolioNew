@@ -24,7 +24,7 @@ export default function Work({innerRef}) {
               icon={
                 <img
                   className={styles.timelineElementIcon}
-                  src={driveToImage(e.icon)}
+                  src={e.icon}
                   alt="Icon"
                   sizes="33vw"
 

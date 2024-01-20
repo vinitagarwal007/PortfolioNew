@@ -5,24 +5,27 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { driveToImage } from "@/app/utils/drivelink";
+import projectData from "@/data/project.json";
 export default function Project({ innerRef }) {
+  const number_project = projectData.length;
   const slickSettings = {
     dots: true,
     infinite: true,
     speed: 500,
+    autoplay: true,
     slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 2560,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: number_project >= 3 ? 3 : number_project,
         },
       },
       ,
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: number_project >= 2 ? 2 : number_project,
         },
       },
       {
@@ -49,31 +52,15 @@ export default function Project({ innerRef }) {
         <br></br>
         <div className={styles.cardholder}>
           <Slider {...slickSettings} className={styles.Slider}>
-            <Card
-              image={driveToImage(
-                "https://drive.google.com/file/d/1B0_UimZSidFG1_RT0L8Tdt8oA2niGgIr/view?usp=drive_link"
-              )}
-              title={"Frontend Developer"}
-              desc={"Descrip"}
-            />
-            <Card
-              image={driveToImage(
-                "https://drive.google.com/file/d/1B0_UimZSidFG1_RT0L8Tdt8oA2niGgIr/view?usp=drive_link"
-              )}
-              title={"Frontend Developer 1"}
-            />
-            <Card
-              image={driveToImage(
-                "https://drive.google.com/file/d/1B0_UimZSidFG1_RT0L8Tdt8oA2niGgIr/view?usp=drive_link"
-              )}
-              title={"Frontend Developer 2"}
-            />
-            <Card
-              image={driveToImage(
-                "https://drive.google.com/file/d/1B0_UimZSidFG1_RT0L8Tdt8oA2niGgIr/view?usp=drive_link"
-              )}
-              title={"Frontend Developer "}
-            />
+            {projectData.map((e) => (
+              <Card
+                image={e.img}
+                title={e.title}
+                desc={e.desc}
+                github={e.github}
+                tag={e.tag}
+              />
+            ))}
           </Slider>
         </div>
       </div>

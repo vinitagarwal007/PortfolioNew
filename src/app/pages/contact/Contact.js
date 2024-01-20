@@ -36,21 +36,10 @@ function ContactForm({innerRef}) {
             </button>
           </form>
           <div className={styles.mapHolder}>
-            <iframe
-              src={process.env.map_url}
+            <img
+              src={"https://uploads-ssl.webflow.com/65aa2aa4809a02781fc77acf/65abfe1b2194abdf88ae758f_Imagem-min.png"}
               className={styles.map}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-            <label>---- OR -----</label>
-            <div className={styles.addressBox}>
-              <p style={{ fontWeight: "bold" }}>Mail Me at:</p>
-              <p>{address}</p>
-              <br />
-              <Link href={mailUrl} target="_blank">
-                {email}
-              </Link>
-            </div>
+            ></img>
           </div>
         </div>
       </div>

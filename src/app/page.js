@@ -24,11 +24,16 @@ export default function Home({ Component, pageProps }) {
     if (workIsVisible) setSelection(3);
     if (contactIsVisible) setSelection(4);
   }, [homeIsVisible, aboutIsVisible, workIsVisible, contactIsVisible]);
-  useEffect(()=>console.log(selection),[selection])
   return (
     <>
-      <Navbar selection={selection}></Navbar>
-      <Landing id="" innerRef={homeRef}></Landing>
+      <Navbar
+        selection={selection}
+        homeRef={homeRef}
+        aboutRef={aboutRef}
+        workRef={workRef}
+        contactRef={contactRef}
+      ></Navbar>
+      <Landing innerRef={homeRef} contactRef={contactRef}></Landing>
       <Overview innerRef={aboutRef}></Overview>
       <Work innerRef={workRef}></Work>
       <Project></Project>
