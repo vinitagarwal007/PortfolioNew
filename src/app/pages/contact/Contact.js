@@ -20,17 +20,18 @@ function ContactForm({innerRef}) {
         <label className={styles.header2}>Contact.</label>
         <div className={styles.formHolder}>
           <form
-            action="https://form2channel.com/?apikey=WIxKSYTpxkkWQiuvY2Ur49cBlAOirK"
+            action="https://form2channel.com/"
             method="POST"
             encType="multipart/form-data"
             className={styles.form}
           >
+            <input type="hidden" name="formto_apikey" value="KqrYnbGHlnq0jmEPBYpyzjgJo32gbH"></input>
             <label htmlFor="name">Name</label>
-            <input id="text" type="name" name="name" />
+            <input id="text" type="name" name="TextField" />
             <label htmlFor="email">Email Address</label>
-            <input id="email" type="email" name="email" />
+            <input id="email" type="email" name="TextField" />
             <label htmlFor="email">Message</label>
-            <textarea id="message" name="message" />
+            <textarea id="message" name="TextArea" />
             <button type="submit">
               Submit
             </button>
