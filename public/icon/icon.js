@@ -9,6 +9,15 @@ import pythonIcon from './python.svg'
 import reactIcon from './React.svg'
 import vulmiqiIcon from './vulmiqi.svg'
 import mailIcon from './mail.svg'
+import djangoIcon from './Django.svg'
+import mysqlIcon from './mysql.svg'
+import postgresIcon from './postgres.svg'
+import dbIcon from './database.svg'
+import mongoIcon from './mongodb.svg'
+import devopsIcon from './devops.svg'
+import awsIcon from './aws.svg'
+import dockerIcon from './docker.svg'
+import kubernetesIcon from './kubernetes.svg'
 
 export {
     githubIcon,
@@ -21,5 +30,14 @@ export {
     pythonIcon,
     reactIcon,
     vulmiqiIcon,
-    mailIcon
+    mailIcon,
+    djangoIcon,
+    mysqlIcon,
+    postgresIcon,
+    dbIcon,
+    mongoIcon,
+    devopsIcon,
+    awsIcon,
+    dockerIcon,
+    kubernetesIcon
 }

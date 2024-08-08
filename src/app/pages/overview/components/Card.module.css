@@ -15,10 +15,6 @@
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
 }
-.card:hover{
-    width: 16vw;
-    height: 36vh;
-}
 .titleText{
     width: 100%;
     color: #FFFFFF;
@@ -33,16 +29,27 @@
     height: 50%;
     align-self: center;
 }
+.list{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+.listElement{
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    margin-bottom:10px;
+}
 @media (max-width: 1180px) {
     .card{
         width: 15vw;
         height: 25vh;
         margin: 1%;
         box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.10);
-    }
-    .card:hover{
-        width: 16vw;
-        height: 26vh;
     }
     .titleText{
         font-size: 1.5rem;
@@ -55,10 +62,6 @@
         margin: 1%;
         box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.10);
     }
-    .card:hover{
-        width: 17vw;
-        height: 15vh;
-    }
     .titleText{
         font-size: 1rem;
     }
@@ -70,10 +73,6 @@
         height: 19vh;
         margin: 0px;
         box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.10);
-    }
-    .card:hover{
-        width: 37vw;
-        height: 19vh;
     }
     .titleText{
         font-size: 1rem;
