@@ -3,9 +3,9 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
-  title: "Vinit Agarwal | Portfolio",
-  description: "Portfolio for Vinit Agarwal",
   openGraph:{
+    title: "Vinit Agarwal | Portfolio",
+    description: "Portfolio for Vinit Agarwal",
     url: 'https://uploads-ssl.webflow.com/65aa2aa4809a02781fc77acf/65abf04ad6e8611d0207b454_portfoliohero.jpg',
     secureUrl: 'https://uploads-ssl.webflow.com/65aa2aa4809a02781fc77acf/65abf04ad6e8611d0207b454_portfoliohero.jpg',
     width: 1200,
