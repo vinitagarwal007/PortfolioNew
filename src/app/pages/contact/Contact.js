@@ -27,11 +27,11 @@ function ContactForm({innerRef}) {
           >
             <input type="hidden" name="formto_apikey" value="KqrYnbGHlnq0jmEPBYpyzjgJo32gbH"></input>
             <label htmlFor="name">Name</label>
-            <input id="text" type="name" name="TextField" />
+            <input id="text" type="name" name="Name" />
             <label htmlFor="email">Email Address</label>
-            <input id="email" type="email" name="TextField" />
+            <input id="email" type="email" name="Email" />
             <label htmlFor="email">Message</label>
-            <textarea id="message" name="TextArea" />
+            <textarea id="message" name="Message" />
             <button type="submit">
               Submit
             </button>
