@@ -10,7 +10,7 @@ import ContactForm from "./pages/contact/Contact";
 import Splash from "./pages/spash/Splash";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { redirect } from "next/navigation";
+import { useSearchParams } from 'next/navigation';
 export default function Home({ Component, pageProps }) {
   const options = {
     root: null,
@@ -36,9 +36,9 @@ export default function Home({ Component, pageProps }) {
   }, [3000]);
 
   const [done, setDone] = useState(false)
-  const urlParams = new URLSearchParams(window.location.search);
-  var result = JSON.parse(urlParams.get("result"))
-  if (!splash && result?.Success && !done) {
+  const params = useSearchParams()
+  const result = JSON.parse(params.get('result'))
+  if (result?.Success && !done) {
     toast("Mail Sent Successfully", {
       toastId: "one",
     });
