@@ -25,9 +25,9 @@ export default function Overview({
         </>
       ) : (
         <div className={styles.list}>
-          {list?.map((ele) => {
+          {list?.map((ele,idx) => {
             return (
-              <div className={styles.listElement}>
+              <div className={styles.listElement} key={idx}>
                 <Image src={ele.image} width={40}></Image>
                 <h4 style={{width:"50%"}}>{ele.text}</h4>
               </div>
