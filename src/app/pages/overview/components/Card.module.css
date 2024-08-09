@@ -58,6 +58,11 @@
         margin: 1%;
         box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.10);
     }
+    .list{
+        padding: 0px;
+        margin-left: -20px;
+        align-content: center;
+    }
     .titleText{
         font-size: 1.5rem;
     }
@@ -68,6 +73,16 @@
         height: 14vh;
         margin: 1%;
         box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.10);
+    }
+    .list{
+        padding: 0px;
+        margin-left: -20px;
+        align-content: center;
+    }
+    .listLabel{
+        width: 50%;
+        font-size: smaller;
+        font-weight: bold;
     }
     .titleText{
         font-size: 1rem;
