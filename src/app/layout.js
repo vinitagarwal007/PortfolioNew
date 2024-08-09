@@ -6,7 +6,11 @@ export const metadata = {
   title: "Vinit Agarwal | Portfolio",
   description: "Portfolio for Vinit Agarwal",
   openGraph:{
-    images:[{hero}]
+    url: 'https://uploads-ssl.webflow.com/65aa2aa4809a02781fc77acf/65abf04ad6e8611d0207b454_portfoliohero.jpg',
+    secureUrl: 'https://uploads-ssl.webflow.com/65aa2aa4809a02781fc77acf/65abf04ad6e8611d0207b454_portfoliohero.jpg',
+    width: 1200,
+    height: 630,
+    alt: 'Preview image for Portfolio',
   }
 };
 
