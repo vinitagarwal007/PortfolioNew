@@ -8,9 +8,9 @@ export const metadata = {
     description: "Portfolio for Vinit Agarwal",
     images: [
       {
-        url: "https://uploads-ssl.webflow.com/65aa2aa4809a02781fc77acf/65abf04ad6e8611d0207b454_portfoliohero.jpg",
+        url: "https://res.cloudinary.com/drpl5yzbd/image/upload/v1723167988/unnamed_pwesqj.jpg",
         secureUrl:
-          "https://uploads-ssl.webflow.com/65aa2aa4809a02781fc77acf/65abf04ad6e8611d0207b454_portfoliohero.jpg",
+          "https://res.cloudinary.com/drpl5yzbd/image/upload/v1723167988/unnamed_pwesqj.jpg",
         width: 1200,
         height: 630,
         alt: "Preview image for Portfolio",
