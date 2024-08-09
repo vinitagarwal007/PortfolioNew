@@ -44,6 +44,13 @@
     width: 100%;
     margin-bottom:10px;
 }
+.listImage{
+    width: 30%;
+    height: 100%;
+}
+.listLabel{
+    width: 50%;
+}
 @media (max-width: 1180px) {
     .card{
         width: 15vw;
@@ -76,5 +83,19 @@
     }
     .titleText{
         font-size: 1rem;
+    }
+    .list{
+        padding: 0px;
+        margin-left: -20px;
+        align-content: center;
+    }
+    .listImage{
+        width: 25%;
+        height: 100%;
+    }
+    .listLabel{
+        width: 50%;
+        font-size: small;
+        font-weight: bold;
     }
 }
