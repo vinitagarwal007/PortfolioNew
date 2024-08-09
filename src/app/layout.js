@@ -1,9 +1,13 @@
+import hero from '../../public/hero/hero.png'
 import "./globals.css";
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Vinit Agarwal | Portfolio",
   description: "Portfolio for Vinit Agarwal",
+  openGraph:{
+    images:[{hero}]
+  }
 };
 
 export default function RootLayout({ children }) {
