@@ -1,7 +1,7 @@
 [
   {
-    "title": "ML Smart Attendance System",
-    "desc": "Facial recognitoin Attendance system using python and MERN stack",
+    "title": "Facial Attendance System",
+    "desc": "Facial recognitoin Attendance system using ML in python and MERN stack",
     "tag":"#MERN #Python",
     "github": "https://github.com/saptarsheemitra/Smart-Attendance-System",
     "img": "https://res.cloudinary.com/drpl5yzbd/image/upload/v1723930847/Smartatten_xpf6xd.png"
