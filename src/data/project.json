@@ -1,5 +1,19 @@
 [
   {
+    "title": "ML Smart Attendance System",
+    "desc": "Facial recognitoin Attendance system using python and MERN stack",
+    "tag":"#MERN #Python",
+    "github": "https://github.com/saptarsheemitra/Smart-Attendance-System",
+    "img": "https://res.cloudinary.com/drpl5yzbd/image/upload/v1723930847/Smartatten_xpf6xd.png"
+  },
+  {
+    "title": "FED Website",
+    "desc": "Official Website of FED with inbuilt CMS",
+    "tag":"#MERN #AWS",
+    "github": "https://github.com/fed-tech",
+    "img": "https://res.cloudinary.com/drpl5yzbd/image/upload/v1723930847/fedkiit_pak2zv.png"
+  },
+  {
     "title": "Portfolio",
     "desc": "My portfolio website made with 💗",
     "tag":"#NextJs",
