@@ -14,6 +14,13 @@
     "img": "https://res.cloudinary.com/drpl5yzbd/image/upload/v1723930847/fedkiit_pak2zv.png"
   },
   {
+    "title": "Podcast Application",
+    "desc": "Website for Hosting Audio Podcasts to public",
+    "tag":"#MERN #Cloud",
+    "github": "https://github.com/vinitagarwal007/Podcast-Application",
+    "img": "https://res.cloudinary.com/drpl5yzbd/image/upload/v1723930847/podcast_mcrtcd.png"
+  },
+  {
     "title": "Portfolio",
     "desc": "My portfolio website made with 💗",
     "tag":"#NextJs",
