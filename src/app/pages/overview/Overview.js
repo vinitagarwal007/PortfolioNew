@@ -51,7 +51,7 @@ export default function Overview({ innerRef }) {
           />
           <FlipCard
             image={dbIcon}
-            title={"Database Designer"}
+            title={"Database"}
             list={[
               { text: "MySql", image: mysqlIcon },
               { text: "PostgreSql", image: postgresIcon },
