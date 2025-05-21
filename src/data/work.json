@@ -6,7 +6,7 @@
     "date": "October 2024 - Present",
     "position": "Associate Software Engineer",
     "work": [
-      "Backend Developer at Reconect.ai, contributing to production-grade Django systems supporting over 6 lakh monthly conversations.",
+      "Contributing to production-grade Django systems supporting over 6 lakh monthly conversations.",
       "Built scalable communication layers using serverless architecture with Azure Service Bus, ensuring reliable delivery across channels.",
       "Developed core backend features including rate limiters, API debouncers, and async Python services for high-throughput environments.",
       "Designed analytical SQL queries on PostgreSQL for performance reporting and campaign analysis, enabling actionable insights.",
