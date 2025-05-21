@@ -1,5 +1,19 @@
 [
   {
+    "company": "Reconect.ai",
+    "website": "https://reconect.ai/",
+    "icon": "https://res.cloudinary.com/drpl5yzbd/image/upload/v1747811499/reconect-logo_fxn4dm.png",
+    "date": "October 2024 - Present",
+    "position": "Associate Software Engineer",
+    "work": [
+      "Backend Developer at Reconect.ai, contributing to production-grade Django systems supporting over 6 lakh monthly conversations.",
+      "Built scalable communication layers using serverless architecture with Azure Service Bus, ensuring reliable delivery across channels.",
+      "Developed core backend features including rate limiters, API debouncers, and async Python services for high-throughput environments.",
+      "Designed analytical SQL queries on PostgreSQL for performance reporting and campaign analysis, enabling actionable insights.",
+      "Integrated observability tools and implemented failure monitoring using Azure Monitors and custom event triggers for robust post-deployment diagnostics."
+    ]
+  },
+  {
     "company": "FED",
     "website": "https://fedkiit.com/",
     "icon": "https://uploads-ssl.webflow.com/65aa2aa4809a02781fc77acf/65aa2ac03d353c839051ed7d_Logo%201.webp",
