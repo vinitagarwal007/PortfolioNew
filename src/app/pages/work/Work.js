@@ -30,12 +30,12 @@ export default function Work({innerRef}) {
 
                 ></img>
               }
-              iconOnClick={()=>{window.open(e.website)}}
+              iconOnClick={()=>{e.website && window.open(e.website, '_blank', 'noopener,noreferrer')}}
               visible={true}
             >
               <div className={styles.timelineElementContent}>
                 <h1>{e.position}</h1>
-                <h2 onClick={()=>{window.open(e.website)}}>{e.company}</h2>
+                <h2 onClick={()=>{e.website && window.open(e.website, '_blank', 'noopener,noreferrer')}} style={e.website ? { cursor: 'pointer' } : {}}>{e.company}</h2>
                 <ul className={styles.timelineElementContentList}>
                   {e.work.map((e,idx)=>{
                     return <li key={idx}>{e}</li>

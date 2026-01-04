@@ -13,7 +13,7 @@ export default function Card({ image, title, desc, tag, github }) {
           </div>
           <div className={styles.tagBox}>
             <div className={styles.tag}>{tag}</div>
-            <a href={github} target="_blank">
+            <a href={github} target="_blank" rel="noopener noreferrer">
               <Image
                 className={styles.githubLink}
                 src={githubIcon}

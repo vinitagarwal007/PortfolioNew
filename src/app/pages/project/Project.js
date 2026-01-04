@@ -21,7 +21,6 @@ export default function Project({ innerRef }) {
           slidesToShow: number_project >= 3 ? 3 : number_project,
         },
       },
-      ,
       {
         breakpoint: 1024,
         settings: {

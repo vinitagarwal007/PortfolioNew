@@ -31,19 +31,32 @@ export default function Home({ Component, pageProps }) {
   }, [homeIsVisible, aboutIsVisible, workIsVisible, contactIsVisible]);
 
   const [splash, setSplash] = useState(true);
-  setTimeout(() => {
-    setSplash(false);
-  }, [3000]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSplash(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
-  const [done, setDone] = useState(false)
-  const params = useSearchParams()
-  const result = JSON.parse(params.get('result'))
-  if (result?.Success && !done) {
-    toast("Mail Sent Successfully", {
-      toastId: "one",
-    });
-    setDone(true)
-  }
+  const [done, setDone] = useState(false);
+  const params = useSearchParams();
+  useEffect(() => {
+    if (done) return;
+    try {
+      const resultParam = params.get('result');
+      if (resultParam) {
+        const result = JSON.parse(resultParam);
+        if (result?.Success) {
+          toast("Mail Sent Successfully", {
+            toastId: "one",
+          });
+          setDone(true);
+        }
+      }
+    } catch (error) {
+      // Silently handle JSON parse errors
+    }
+  }, [params, done]);
   return (
     <>
       <Splash />
