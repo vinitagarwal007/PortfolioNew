@@ -1,39 +1,69 @@
-import hero from "../../public/hero/hero.png";
 import "./globals.css";
-import { Inter } from "next/font/google";
-const inter = Inter({ subsets: ["latin"] });
+import { Inter, JetBrains_Mono } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-mono",
+});
+
+const title = "Vinit Agarwal — Distributed Systems Engineer";
+const description =
+  "Backend engineer building distributed communication infrastructure at scale — 10M+ API calls a day across 9 services, 8 telecom providers, one plug-and-play architecture.";
+const preview =
+  "https://res.cloudinary.com/drpl5yzbd/image/upload/v1723167988/unnamed_pwesqj.jpg";
+
 export const metadata = {
+  metadataBase: new URL("https://vinitagarwal.vercel.app"),
+  title,
+  description,
+  keywords: [
+    "Vinit Agarwal",
+    "distributed systems",
+    "backend engineer",
+    "Python",
+    "FastAPI",
+    "Django",
+    "Celery",
+    "Redis",
+    "Kubernetes",
+  ],
+  authors: [{ name: "Vinit Agarwal" }],
   openGraph: {
-    title: "Vinit Agarwal | Portfolio",
-    description: "Portfolio for Vinit Agarwal",
+    title,
+    description,
+    type: "website",
     images: [
       {
-        url: "https://res.cloudinary.com/drpl5yzbd/image/upload/v1723167988/unnamed_pwesqj.jpg",
-        secureUrl:
-          "https://res.cloudinary.com/drpl5yzbd/image/upload/v1723167988/unnamed_pwesqj.jpg",
+        url: preview,
+        secureUrl: preview,
         width: 1200,
         height: 630,
-        alt: "Preview image for Portfolio",
+        alt: "Vinit Agarwal — Distributed Systems Engineer",
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [preview],
+  },
+};
+
+export const viewport = {
+  themeColor: "#06080b",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Roboto:wght@100&display=swap"
-          rel="stylesheet"
-        ></link>
-      </head>
+    <html lang="en" className={`${inter.variable} ${mono.variable}`}>
       <body className={inter.className}>{children}</body>
     </html>
   );
