@@ -81,24 +81,6 @@
   background: var(--accent-dim);
 }
 
-/* links that leave the page, rather than scroll within it */
-.routeLink {
-  display: inline-flex !important;
-  align-items: center;
-  gap: 4px;
-}
-
-.routeMark {
-  font-size: 0.62rem;
-  opacity: 0.6;
-  transition: transform 0.2s ease;
-}
-
-.routeLink:hover .routeMark {
-  transform: translate(1px, -1px);
-  opacity: 1;
-}
-
 .right {
   display: flex;
   align-items: center;

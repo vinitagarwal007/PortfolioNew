@@ -17,11 +17,11 @@ export default function Projects() {
 
         <div className={styles.grid}>
           {projects.map((p) => {
-            const inner = (
+            const body = (
               <>
                 <div className={styles.top}>
                   <span className={styles.context}>{p.context}</span>
-                  {p.href && !p.internal && (
+                  {p.href && (
                     <span className={styles.link} aria-hidden="true">
                       <ExternalIcon width={14} height={14} />
                     </span>
@@ -36,27 +36,29 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                {p.cta && (
-                  <span className={styles.cta}>
-                    {p.cta}
-                    <ArrowIcon width={15} height={15} />
-                  </span>
-                )}
               </>
             );
 
             const style = { "--tint": p.accent };
 
-            if (p.internal) {
+            // A card carrying its own buttons can't itself be a link.
+            if (p.links) {
               return (
-                <Link
+                <div
                   key={p.title}
-                  href={p.href}
                   className={`${styles.card} ${styles.cardFeature}`}
                   style={style}
                 >
-                  {inner}
-                </Link>
+                  {body}
+                  <div className={styles.ctaRow}>
+                    {p.links.map((l) => (
+                      <Link key={l.href} href={l.href} className={styles.cta}>
+                        {l.label}
+                        <ArrowIcon width={15} height={15} />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               );
             }
 
@@ -70,14 +72,14 @@ export default function Projects() {
                   className={styles.card}
                   style={style}
                 >
-                  {inner}
+                  {body}
                 </a>
               );
             }
 
             return (
               <div key={p.title} className={styles.card} style={style}>
-                {inner}
+                {body}
               </div>
             );
           })}

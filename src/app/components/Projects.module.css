@@ -105,23 +105,30 @@
   background: rgba(78, 225, 193, 0.04);
 }
 
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 18px;
+}
+
 .cta {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 16px;
   font-family: var(--mono);
   font-size: 0.78rem;
   color: var(--tint);
   border: 1px solid var(--tint);
   border-radius: 9px;
-  padding: 8px 14px;
-  transition: gap 0.2s ease, background 0.2s ease;
+  padding: 9px 15px;
+  transition: gap 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
-.card:hover .cta {
+.cta:hover {
   gap: 12px;
-  background: rgba(78, 225, 193, 0.12);
+  background: rgba(78, 225, 193, 0.14);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 760px) {

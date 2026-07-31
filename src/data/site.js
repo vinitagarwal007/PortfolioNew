@@ -608,9 +608,11 @@ export const projects = [
     context: "Reconect.ai · 2025–2026",
     desc: "A dynamic template engine that resolves placeholder variables from live DB context at send time — every message assembled per recipient, with provider-specific section constraints, trackable payment links and tenant-level caching with fallback.",
     tags: ["Python", "Redis", "Multi-tenant"],
-    href: "/throttle",
-    internal: true,
-    cta: "Open the throttle simulator",
+    // Two ways into the interactive deep dives that live on their own pages.
+    links: [
+      { href: "/systems", label: "Explore the systems" },
+      { href: "/throttle", label: "Open the simulator" },
+    ],
     accent: "var(--accent)",
   },
   {
