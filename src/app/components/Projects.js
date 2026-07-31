@@ -10,8 +10,9 @@ export default function Projects() {
         <p className="eyebrow">Selected work</p>
         <h2 className="h2">Things I&apos;ve built.</h2>
         <p className="lede">
-          A production platform, plus a few older builds from the years when
-          shipping anything at all felt like magic.
+          One of these runs in production today. The others are from the years
+          when getting anything to work at all still felt like magic — I keep
+          them here because that part matters too.
         </p>
 
         <div className={styles.grid}>

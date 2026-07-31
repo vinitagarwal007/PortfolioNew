@@ -43,24 +43,15 @@ body {
   line-height: 1.6;
 }
 
-/* faint grid + glow wash behind everything */
-body::before {
-  content: "";
+/* the circuit board, drifting packets and all, sits behind every page */
+.site-bg {
   position: fixed;
   inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: -2;
-  background-image: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.022) 1px,
-      transparent 1px
-    ),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(
-    ellipse 100% 60% at 50% 0%,
-    #000 40%,
-    transparent 100%
-  );
+  opacity: 0.62;
+  pointer-events: none;
 }
 
 body::after {
@@ -153,6 +144,19 @@ select {
 
 .mono {
   font-family: var(--mono);
+}
+
+/* available to assistive tech and crawlers, invisible on screen */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .chip {

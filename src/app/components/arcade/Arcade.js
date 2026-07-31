@@ -23,10 +23,12 @@ export default function Arcade() {
     <section className="section" id="arcade">
       <div className="wrap">
         <p className="eyebrow">The arcade</p>
-        <h2 className="h2">Play with the ideas instead of reading them.</h2>
+        <h2 className="h2">Or just play with the ideas.</h2>
         <p className="lede">
-          Two games and three sandboxes, all built from scratch. Each one is a
-          toy version of something I actually had to get right in production.
+          I find things easier to explain when you can poke them. Two games and
+          three sandboxes, all written from scratch — each one a toy version of
+          something I had to get right for real. No engineering background
+          needed to enjoy losing at them.
         </p>
 
         <div className={styles.shell}>

@@ -244,21 +244,37 @@
 
 .skillGroups {
   display: grid;
-  gap: 14px;
+  gap: 18px;
 }
 
 .skillGroup {
   display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 12px;
-  align-items: start;
+  gap: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.skillGroups > .skillGroup:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.groupHead {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .groupName {
-  font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.groupNote {
+  font-size: 0.8rem;
   color: var(--faint);
-  padding-top: 5px;
 }
 
 .groupItems {
@@ -271,9 +287,9 @@
   .grid {
     grid-template-columns: 1fr;
   }
-  .skillGroup {
-    grid-template-columns: 1fr;
-    gap: 6px;
+  .groupHead {
+    flex-direction: column;
+    gap: 2px;
   }
   .item {
     grid-template-columns: 24px 1fr;

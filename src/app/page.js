@@ -1,5 +1,7 @@
+import BootScreen from "./components/BootScreen";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
+import Principles from "./components/Principles";
 import Architecture from "./components/Architecture";
 import Framework from "./components/Framework";
 import Experience from "./components/Experience";
@@ -12,9 +14,11 @@ import Footer from "./components/Footer";
 export default function Home() {
   return (
     <>
+      <BootScreen />
       <Nav />
       <main>
         <Hero />
+        <Principles />
         <Architecture />
         <Framework />
         <Experience />

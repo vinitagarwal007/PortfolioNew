@@ -4,13 +4,26 @@
 // than internal repository names. Swap `slug`/`name` here if you ever want the
 // real repo names on the public site.
 
+// Update this if the site moves to a custom domain — it drives canonical URLs,
+// the sitemap, robots.txt and every absolute URL in the structured data.
+export const siteUrl = "https://vinitagarwal.vercel.app";
+
 export const profile = {
   name: "Vinit Agarwal",
   role: "Distributed Systems Engineer",
-  tagline: "I build the plumbing that stays up when everything else spikes.",
+
+  // The one sentence the whole site is an argument for.
+  headline:
+    "I design and own distributed systems end to end — architecture through production — so they stay correct at scale and affordable to run.",
+
+  // The same sentence for someone who doesn't write software.
+  plain:
+    "Almost everything I build is invisible. It's the machinery underneath an app that decides what happens next, makes sure it happens exactly once, and keeps the running cost from growing faster than the business does.",
+
   blurb:
-    "Backend engineer at Reconect.ai. I designed the communication framework that 10M+ API calls a day pass through — 8+ provider integrations normalised behind one static interface, so the systems calling it never decide how anything gets sent.",
-  location: "Bhubaneswar / Remote, India",
+    "I'm a backend engineer in Bangalore. I like the parts of a system that other people would rather not think about — what happens when a message arrives twice, when a vendor goes quiet mid-send, when a queue backs up at the worst possible hour. I've spent the last two years designing that layer for a platform that handles millions of interactions a day, and I own it from the architecture diagram to the 2am page.",
+
+  location: "Bangalore, India",
   email: "vinitagarwal.garg@gmail.com",
   resume:
     "https://drive.google.com/file/d/1O2QuGhC27nJWt_5Z6CVi7_ILPmyZI6LE/view?usp=drive_link",
@@ -21,18 +34,71 @@ export const profile = {
     mail: "mailto:vinitagarwal.garg@gmail.com",
   },
   roles: [
-    "distributed systems",
-    "event-driven backends",
-    "async Python at scale",
-    "multi-tenant infrastructure",
+    "abstractions other engineers build on",
+    "systems that fail honestly",
+    "scale that stays affordable",
+    "services from empty folder to production",
   ],
 };
 
 export const stats = [
-  { value: "10M+", label: "API calls / day", note: "communication service" },
-  { value: "9", label: "services owned", note: "bootstrapped end to end" },
-  { value: "8+", label: "integrations", note: "one static interface" },
-  { value: "139k", label: "lines shipped", note: "713 commits, 14 months" },
+  { value: "10M+", label: "interactions a day", note: "systems I designed" },
+  { value: "9", label: "services owned", note: "empty folder to production" },
+  { value: "8+", label: "integrations", note: "behind one interface" },
+  { value: "36%", label: "of my commits", note: "were refactors, deliberately" },
+];
+
+// ---------------------------------------------------------------------------
+// How I work — the spine of the site. Each principle reads twice: once for
+// anyone, once for engineers.
+// ---------------------------------------------------------------------------
+
+export const principles = [
+  {
+    id: "abstraction",
+    title: "I design the thing other people call",
+    plain:
+      "The best compliment my work gets is that nobody has to think about it. If a teammate has to understand eight different vendors to send one message, I've done my job badly.",
+    technical:
+      "Static contracts over conditionals. Implementations selected at runtime by key, each returning a typed model that the pipeline normalises into one standard vocabulary. Adding a provider is an implementation and a mapping — never a change to routing.",
+    evidence: "8+ integrations, one dispatch path, zero vendor branches upstream",
+  },
+  {
+    id: "reliability",
+    title: "I assume it breaks, and I want to know which break it was",
+    plain:
+      "Networks drop, vendors go down, users tap send six times. None of that is unusual — it's Tuesday. What matters is that the system can tell the difference between 'that genuinely failed' and 'try that again', because one of those is a refund and the other is a duplicate charge.",
+    technical:
+      "Idempotency enforced at the worker, not hoped for. A strict error taxonomy separating terminal vendor outcomes from retryable system failures. Exponential backoff with bounded retries, atomic cancellation under row-level locks, and explicit state machines wherever two jobs can touch the same row.",
+    evidence: "retryable ≠ failed · at-least-once delivery · races resolved, not documented",
+  },
+  {
+    id: "efficiency",
+    title: "Scale is a budget, not a bragging right",
+    plain:
+      "Making something work for a million people is easy if you don't care what it costs. The interesting problem is doing it on a bill the business can actually pay — and that usually means not asking the database the same question twice.",
+    technical:
+      "Roughly 80% of per-job context reads served from Redis rather than Postgres, keyed per tenant and invalidated on write. Query hardening that cut 40+ seconds off report execution, N+1 elimination in paginated status reporting, and throttling shaped to each vendor's ceiling so throughput is buffered instead of burned.",
+    evidence: "−40s query time · ~80% cache hit rate · ~20% cloud spend removed",
+  },
+  {
+    id: "ownership",
+    title: "Zero to one, and then I stay",
+    plain:
+      "I've started a fair few services from an empty folder — and I'm still the person who gets called when they misbehave. Building it is the easy half; living with it is where you learn what you actually designed.",
+    technical:
+      "Bootstrapping end to end: Docker, dependency management, async database pooling, CI/CD, deploys, then production support. Nine services across ingress, core orchestration, egress gateways and a realtime agent runtime — most of them mine from the first commit.",
+    evidence: "9 services · 14 months · still on call for them",
+  },
+  {
+    id: "refactor",
+    title: "I go back and fix what I built",
+    plain:
+      "Code I wrote a year ago was written by someone with less information. I'd rather return to it than defend it.",
+    technical:
+      "In the core service, 36% of my commits were pure refactoring — extracting shared schema libraries, collapsing duplicated parsers into one polymorphic pipeline, and paying down debt I created myself while moving fast.",
+    evidence: "36% of commits: refactors, not features",
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -40,9 +106,11 @@ export const stats = [
 // ---------------------------------------------------------------------------
 
 export const framework = {
-  eyebrow: "Designed and built from scratch",
-  title: "One static interface. Eight providers. The caller never knows which.",
-  lede: "The communication layer's real job was never sending messages — it was abstraction. I designed a framework that normalises every provider's routing, payload shape, auth scheme and delivery semantics behind one static interface. Systems that use it don't decide anything: they call it, and the orchestration is handled underneath.",
+  eyebrow: "The piece of design work I'm proudest of",
+  title: "One interface. Eight vendors. Nobody upstream can tell them apart.",
+  plain:
+    "Eight different companies carry these messages, and every one of them speaks its own language, checks your identity differently, and has its own opinion about how fast you're allowed to go. I built the translator that sits in the middle — so everyone else on the team gets to pretend there's only one.",
+  lede: "The real job here was never sending messages, it was abstraction. I designed a framework that normalises every provider's routing, payload shape, auth scheme and delivery semantics behind one static interface. Systems that use it don't decide anything: they call it, and the orchestration is handled underneath.",
 
   contract:
     "Each integration is free to do whatever its vendor demands internally — its own auth dance, its own endpoints, its own parsing. What it is not free to do is invent an output. Every implementation returns a defined Pydantic model, and that typed object is what the pipeline processes onward into the standard format the rest of the application already understands. A voice integration reporting call_completed becomes ANSWERED before it ever leaves the boundary; nothing upstream has ever heard of call_completed. That translation is the whole point of the abstraction.",
@@ -649,35 +717,54 @@ export const education = {
 
 export const skills = [
   {
-    group: "Languages",
-    items: ["Python", "C++", "JavaScript", "SQL"],
+    group: "Async Python, at volume",
+    note: "Non-blocking I/O is the default, not an optimisation.",
+    items: ["asyncio", "aiohttp", "FastAPI", "Socket.IO", "connection pooling", "Celery"],
   },
   {
-    group: "Backend",
-    items: ["Django", "FastAPI", "Django Ninja", "Celery", "Node.js", "Socket.IO"],
-  },
-  {
-    group: "Data",
-    items: ["PostgreSQL", "Redis", "MongoDB", "DynamoDB", "Cosmos DB", "MySQL"],
-  },
-  {
-    group: "Cloud & DevOps",
-    items: ["AWS", "Azure", "Docker", "Kubernetes", "KEDA", "Jenkins", "n8n"],
-  },
-  {
-    group: "Architecture",
+    group: "Design patterns, used in anger",
+    note: "Chosen because the alternative hurt, not because of a book.",
     items: [
-      "Event-driven",
-      "Microservices",
-      "Multi-tenancy",
-      "Rate limiting",
-      "M2M auth",
-      "Idempotency",
+      "Strategy + Registry",
+      "Template Method",
+      "DTO-first APIs",
+      "polymorphic schemas",
+      "shared contract libraries",
     ],
   },
   {
-    group: "Frontend",
-    items: ["React", "Next.js"],
+    group: "Correctness",
+    note: "Where most of my thinking actually goes.",
+    items: [
+      "idempotency",
+      "race conditions",
+      "state machines",
+      "Pydantic validation",
+      "Decimal for money",
+      "error taxonomies",
+    ],
+  },
+  {
+    group: "Storage & transport",
+    note: "Picked per problem, hidden behind an interface either way.",
+    items: [
+      "PostgreSQL",
+      "Redis",
+      "DynamoDB",
+      "Cosmos DB",
+      "Azure Service Bus",
+      "MongoDB",
+    ],
+  },
+  {
+    group: "Ship it and keep it up",
+    note: "The half of the job that happens after the merge.",
+    items: ["Docker", "Kubernetes", "KEDA", "CI/CD", "structured logging", "Key Vault"],
+  },
+  {
+    group: "Also fluent in",
+    note: "Enough to build the thing myself when there's no one else.",
+    items: ["Django", "Node.js", "React", "Next.js", "C++", "n8n"],
   },
 ];
 

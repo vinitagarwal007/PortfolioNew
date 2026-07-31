@@ -1,3 +1,12 @@
+.ledeTech {
+  color: var(--faint);
+  font-size: 0.92rem;
+  max-width: 68ch;
+  margin-top: 10px;
+  padding-left: 15px;
+  border-left: 2px solid var(--line-hi);
+}
+
 .outcomes {
   list-style: none;
   display: grid;

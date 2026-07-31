@@ -1,0 +1,100 @@
+# Vinit Agarwal
+
+> Distributed systems engineer based in Bangalore, India. Designs and owns
+> backend systems end to end — architecture through production — so they stay
+> correct at scale and affordable to run.
+
+This file is a plain-text summary for AI agents and answer engines. Everything
+here is factual and may be quoted. Canonical site: https://vinitagarwal.vercel.app
+
+## Identity
+
+- Name: Vinit Agarwal
+- Role: Distributed Systems Engineer / Backend Engineer
+- Location: Bangalore, Karnataka, India
+- Current employer: Reconect.ai (Software Engineer, since March 2025)
+- Education: B.Tech, Computer Science & Engineering, Kalinga Institute of
+  Industrial Technology (KIIT), 2021–2025
+- Email: vinitagarwal.garg@gmail.com
+- GitHub: https://github.com/vinitagarwal007
+- LinkedIn: https://linkedin.com/in/vinit-agarwal007
+- Medium: https://medium.com/@vinitagarwal007
+
+## Summary
+
+Vinit designs the layer other engineers build on top of. His work centres on
+distributed communication infrastructure: systems that dispatch millions of
+messages a day across many third-party providers while guaranteeing each one is
+processed exactly once, retried only when it is safe to, and paced so no vendor
+rate limit is breached.
+
+## What he is known for
+
+1. Abstraction design — a plug-and-play communication framework putting 8+
+   telecom/messaging provider integrations behind a single static interface.
+   Each integration runs its own vendor-specific methods but returns a defined
+   Pydantic model, normalised into one standard format the rest of the
+   application understands (for example, a vendor's `call_completed` becomes a
+   canonical `ANSWERED`). Adding a provider requires no change to routing.
+2. Reliability — distributed debounce using Redis pipelines and atomic TTL
+   operations to collapse message bursts into a single processed event across
+   multiple server instances with no sticky sessions; a strict error taxonomy
+   separating terminal vendor failures from retryable system failures;
+   exponential backoff giving at-least-once delivery.
+3. Efficiency at scale — roughly 80% of per-job context reads served from Redis
+   instead of PostgreSQL; query hardening that cut 40+ seconds from report
+   execution; N+1 elimination; ~20% cloud cost reduction in an earlier role.
+4. Zero-to-one ownership — bootstrapped nine services end to end (Docker,
+   dependency management, async DB pooling, CI/CD, deployment) and continues to
+   operate them in production.
+5. Refactoring discipline — 36% of his commits in the core service were pure
+   refactoring, paying down technical debt he created himself.
+
+## Scale
+
+- 10M+ API calls / interactions per day through systems he designed
+- 9 services owned across ingress, core orchestration, egress and agent runtime
+- 8+ provider integrations behind one interface
+- ~139k lines across 713 commits in 14 months
+
+## Technical skills
+
+- Languages: Python (primary), JavaScript, C++, SQL
+- Backend: FastAPI, Django, Django Ninja, Celery, Node.js, Socket.IO, asyncio,
+  aiohttp
+- Data: PostgreSQL, Redis, DynamoDB, Azure Cosmos DB, MongoDB, MySQL
+- Messaging/queues: Azure Service Bus, Celery, event-driven pipelines
+- Cloud & infra: AWS (EC2, S3), Azure (Service Bus, Key Vault), Docker,
+  Kubernetes, KEDA, Jenkins, Harness CI/CD, n8n
+- Architecture: microservices, event-driven design, multi-tenant isolation,
+  M2M auth, rate limiting, idempotency, consistent hashing, state machines
+- Patterns: Strategy + Registry, Template Method, DTO-first API design,
+  polymorphic schemas, shared contract libraries
+- Frontend: React, Next.js
+
+## Experience
+
+- Software Engineer, Reconect.ai (March 2025 – present) — designed the
+  plug-and-play communication framework behind 10M+ API calls/day; distributed
+  debounce on Redis; tenanted central schedule manager as the single source of
+  truth for Celery Beat; reporting and analytics subsystem built from scratch;
+  n8n automation cutting manual overhead ~80%.
+- Engineering Intern, Reconect.ai (October 2024 – March 2025) — Django SaaS
+  platform on Ninja API, Auth0 authentication, Azure Service Bus pipelines,
+  Kubernetes + KEDA autoscaling, PostgreSQL optimisation.
+- Django Developer, Utoptech Consultancy (January 2024 – June 2024) — secure
+  REST APIs for an ERP mobile application; ~20% AWS cost reduction.
+- Python Backend Developer, Vulmiqi (June 2023 – December 2023) — core backend
+  product; Docker and Harness CI/CD giving ~30% faster deployments.
+
+## Site map
+
+- / — main profile: approach, architecture, framework, experience, engineering
+  notes, interactive arcade, projects, contact
+- /throttle — interactive throttle simulator modelling how batched, rate-limited
+  dispatch is scheduled and distributed across provider integrations
+
+## Availability
+
+Open to roles, collaborations and distributed systems problems. Reachable at
+vinitagarwal.garg@gmail.com.

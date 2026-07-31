@@ -12,7 +12,8 @@ export default function Framework() {
       <div className="wrap">
         <p className="eyebrow">{framework.eyebrow}</p>
         <h2 className="h2">{framework.title}</h2>
-        <p className="lede">{framework.lede}</p>
+        <p className="lede">{framework.plain}</p>
+        <p className={styles.ledeTech}>{framework.lede}</p>
 
         <ul className={styles.outcomes}>
           {framework.outcomes.map(([value, label]) => (

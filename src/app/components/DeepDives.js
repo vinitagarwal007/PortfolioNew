@@ -17,11 +17,12 @@ export default function DeepDives() {
     <section className="section" id="engineering">
       <div className="wrap">
         <p className="eyebrow">Engineering notes</p>
-        <h2 className="h2">Hard problems, and what I did about them.</h2>
+        <h2 className="h2">Problems I&apos;ve had to think hard about.</h2>
         <p className="lede">
-          Distributed systems are mostly a series of small honest questions:
-          who owns this state, what happens twice, and what do you do when the
-          other side is down. Six answers I&apos;ve had to write for real.
+          Distributed systems come down to a few stubborn questions: who owns
+          this piece of state, what happens if it runs twice, and what do you do
+          when the other side stops answering. Six times I had to write a real
+          answer rather than a hopeful one.
         </p>
 
         <div className={styles.grid}>

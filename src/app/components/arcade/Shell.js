@@ -6,15 +6,16 @@ import { profile, skills, stats } from "@/data/site";
 
 const FILES = {
   "about.txt": [
-    "Vinit Agarwal — backend engineer, Reconect.ai.",
-    "I design distributed communication infrastructure: batching, throttling,",
-    "idempotency, delivery guarantees. Mostly Python. Occasionally too much Redis.",
+    "Vinit Agarwal — backend engineer, Bangalore.",
+    "I design distributed systems end to end and then live with them: batching,",
+    "throttling, idempotency, delivery guarantees. Mostly Python.",
+    "I like the parts other people would rather not think about.",
   ],
   "now.md": [
     "# now",
-    "- owning the communication service (10M+ calls/day)",
-    "- paying down my own technical debt, on purpose",
-    "- reading about consensus protocols instead of sleeping",
+    "- owning systems that handle 10M+ interactions a day",
+    "- paying down technical debt I created myself, on purpose",
+    "- learning how consensus protocols actually behave, not just what they promise",
   ],
   "contact.card": [
     `email    ${profile.email}`,
@@ -87,7 +88,8 @@ export default function Shell() {
 
       case "whoami":
         out(`${profile.name} — ${profile.role}`);
-        out(profile.tagline, "dim");
+        out(profile.location, "dim");
+        out(profile.headline, "dim");
         break;
 
       case "ls":
