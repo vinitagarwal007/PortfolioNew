@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./Hero.module.css";
 import { profile, stats } from "@/data/site";
 import { GithubIcon, LinkedinIcon, MailIcon, MediumIcon } from "./icons";
+import RotatingTitle from "./RotatingTitle";
 
 function useTypewriter(words, speed = 65, hold = 1600) {
   const [text, setText] = useState("");
@@ -70,7 +71,9 @@ export default function Hero() {
 
           <p className={styles.badge}>
             <span className={styles.live} />
-            {profile.role} · {profile.location}
+            <RotatingTitle titles={profile.titles} />
+            <span className={styles.badgeSep}>·</span>
+            {profile.location}
           </p>
 
           <h2 className={styles.name}>{profile.name}</h2>

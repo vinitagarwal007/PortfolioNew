@@ -259,6 +259,24 @@ export default function CircuitCanvas({ className }) {
     };
     window.addEventListener("resize", onResize);
 
+    /**
+     * Past the landing screen the board recedes: it fades to half strength and
+     * goes soft, so content sits on a quiet backdrop instead of live circuitry.
+     * Opacity/filter/transform are compositor-only, so this is cheap enough to
+     * run straight off the scroll event.
+     */
+    const BASE_OPACITY = 0.62;
+    const applyScroll = () => {
+      const vh = window.innerHeight || 1;
+      const p = Math.min(1, Math.max(0, window.scrollY / (vh * 0.8)));
+      canvas.style.opacity = (BASE_OPACITY * (1 - 0.5 * p)).toFixed(3);
+      canvas.style.filter = p > 0.002 ? `blur(${(p * 3.6).toFixed(2)}px)` : "none";
+      // a hair of scale hides the soft edge blur pulls in from outside the canvas
+      canvas.style.transform = p > 0.002 ? `scale(${(1 + p * 0.02).toFixed(4)})` : "none";
+    };
+    applyScroll();
+    window.addEventListener("scroll", applyScroll, { passive: true });
+
     const onVisibility = () => {
       if (reduced) return;
       if (document.hidden) {
@@ -276,6 +294,7 @@ export default function CircuitCanvas({ className }) {
       running = false;
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", onResize);
+      window.removeEventListener("scroll", applyScroll);
       document.removeEventListener("visibilitychange", onVisibility);
     };
   }, []);

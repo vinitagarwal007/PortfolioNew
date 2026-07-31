@@ -1,12 +1,8 @@
-"use client";
-import { useState } from "react";
+import Link from "next/link";
 import styles from "./Framework.module.css";
 import { framework } from "@/data/site";
 
 export default function Framework() {
-  const [active, setActive] = useState(0);
-  const provider = framework.providers[active];
-
   return (
     <section className="section" id="framework">
       <div className="wrap">
@@ -24,83 +20,6 @@ export default function Framework() {
           ))}
         </ul>
 
-        <div className={styles.translator}>
-          <header className={styles.tHead}>
-            <div>
-              <p className={styles.tTitle}>Same contract, eight dialects</p>
-              <p className={styles.tSub}>
-                Pick a provider. The left side is what they send. The right side
-                is what every system above the framework actually reads.
-              </p>
-            </div>
-            <span className={styles.illustrative}>illustrative shapes</span>
-          </header>
-
-          <div className={styles.providerRow}>
-            {framework.providers.map((p, i) => (
-              <button
-                key={p.name}
-                className={`${styles.provider} ${
-                  i === active ? styles.providerOn : ""
-                }`}
-                onClick={() => setActive(i)}
-                aria-pressed={i === active}
-              >
-                {p.name}
-              </button>
-            ))}
-          </div>
-
-          <div className={styles.panes}>
-            <div className={styles.pane}>
-              <div className={styles.paneHead}>
-                <span className={styles.paneLabel}>inbound · vendor native</span>
-                <span className={styles.paneMeta}>{provider.transport}</span>
-              </div>
-              <pre className={`${styles.code} thin-scroll`}>{provider.raw}</pre>
-              <p className={styles.paneFoot}>auth: {provider.auth}</p>
-            </div>
-
-            <div className={styles.arrow} aria-hidden="true">
-              <span className={styles.arrowLine} />
-              <span className={styles.arrowChip}>normalise</span>
-              <span className={styles.arrowLine} />
-            </div>
-
-            <div className={`${styles.pane} ${styles.paneOut}`}>
-              <div className={styles.paneHead}>
-                <span className={styles.paneLabel}>
-                  outbound · standard system vars
-                </span>
-                <span className={styles.paneMeta}>identical for all 8</span>
-              </div>
-              <pre className={`${styles.code} thin-scroll`}>
-                {Object.entries(provider.canonical).map(([k, v]) => (
-                  <span key={k} className={styles.line}>
-                    <span className={styles.key}>{k}</span>
-                    <span className={styles.punct}>: </span>
-                    <span
-                      className={
-                        v === null
-                          ? styles.null
-                          : typeof v === "boolean"
-                          ? styles.bool
-                          : styles.str
-                      }
-                    >
-                      {v === null ? "null" : String(v)}
-                    </span>
-                    {"\n"}
-                  </span>
-                ))}
-              </pre>
-              <p className={styles.paneFoot}>
-                one canonical event · one processing path
-              </p>
-            </div>
-          </div>
-        </div>
-
         <div className={styles.contract}>
           <div className={styles.contractText}>
             <span className={styles.contractLabel}>The contract</span>
@@ -108,7 +27,9 @@ export default function Framework() {
           </div>
 
           <div className={styles.vocab}>
-            <span className={styles.contractLabel}>Vendor vocabulary → system vocabulary</span>
+            <span className={styles.contractLabel}>
+              Vendor vocabulary → system vocabulary
+            </span>
             <ul>
               {framework.vocabulary.map((row) => (
                 <li key={row.to}>
@@ -139,6 +60,32 @@ export default function Framework() {
               <p>{p.body}</p>
             </article>
           ))}
+        </div>
+
+        <div className={styles.explore}>
+          <Link href="/systems" className={styles.exploreCard}>
+            <span className={styles.exploreLabel}>Explore</span>
+            <strong>The nine services it runs across</strong>
+            <span className={styles.exploreDesc}>
+              An interactive map of the stack — ingress, core, egress and agent
+              runtime. Pick a node to see what I built inside it.
+            </span>
+            <span className={styles.exploreGo}>
+              Open the map <span aria-hidden="true">→</span>
+            </span>
+          </Link>
+
+          <Link href="/throttle" className={styles.exploreCard}>
+            <span className={styles.exploreLabel}>Play</span>
+            <strong>How 40,000 messages actually leave</strong>
+            <span className={styles.exploreDesc}>
+              Set throttle windows per integration and watch the scheduler
+              spread the load — or turn throttling off and get rate limited.
+            </span>
+            <span className={styles.exploreGo}>
+              Open the simulator <span aria-hidden="true">→</span>
+            </span>
+          </Link>
         </div>
       </div>
     </section>
