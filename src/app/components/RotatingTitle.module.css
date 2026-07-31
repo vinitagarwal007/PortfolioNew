@@ -1,0 +1,44 @@
+.rotator {
+  display: inline-grid;
+  position: relative;
+  overflow: hidden;
+  vertical-align: bottom;
+  text-align: left;
+}
+
+/* invisible longest title: fixes the width and height, so nothing jitters */
+.spacer {
+  grid-area: 1 / 1;
+  visibility: hidden;
+  white-space: nowrap;
+}
+
+.item {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(105%);
+  transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.25, 1),
+    opacity 0.4s ease;
+}
+
+/* the outgoing title keeps travelling upward rather than snapping back */
+.item.on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.item:not(.on) {
+  transform: translateY(-105%);
+}
+
+/* the one queued next waits below, ready to scroll up */
+.item:not(.on) ~ .item:not(.on) {
+  transform: translateY(105%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item {
+    transition: none;
+  }
+}

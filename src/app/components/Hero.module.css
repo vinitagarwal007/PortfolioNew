@@ -41,6 +41,11 @@
   backdrop-filter: blur(6px);
 }
 
+.badgeSep {
+  color: var(--faint);
+  margin: 0 2px;
+}
+
 .live {
   width: 6px;
   height: 6px;

@@ -14,7 +14,7 @@ export function buildStructuredData() {
     name: profile.name,
     givenName: "Vinit",
     familyName: "Agarwal",
-    jobTitle: profile.role,
+    jobTitle: profile.titles,
     description: profile.headline,
     disambiguatingDescription: profile.plain,
     url: siteUrl,

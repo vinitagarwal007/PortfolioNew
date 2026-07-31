@@ -1,12 +1,13 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import styles from "./Nav.module.css";
 import useActiveSection from "../hooks/useActiveSection";
 import { profile } from "@/data/site";
 
 const LINKS = [
   { id: "approach", label: "Approach" },
-  { id: "systems", label: "Systems" },
+  { href: "/systems", label: "Systems", route: true },
   { id: "framework", label: "Framework" },
   { id: "work", label: "Path" },
   { id: "engineering", label: "Notes" },
@@ -16,7 +17,7 @@ const LINKS = [
 ];
 
 export default function Nav() {
-  const ids = useMemo(() => LINKS.map((l) => l.id), []);
+  const ids = useMemo(() => LINKS.filter((l) => !l.route).map((l) => l.id), []);
   const active = useActiveSection(ids);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -27,6 +28,24 @@ export default function Nav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const renderLink = (l, onClick) =>
+    l.route ? (
+      <Link href={l.href} className={styles.routeLink} onClick={onClick}>
+        {l.label}
+        <span className={styles.routeMark} aria-hidden="true">
+          ↗
+        </span>
+      </Link>
+    ) : (
+      <a
+        href={`#${l.id}`}
+        className={active === l.id ? styles.active : ""}
+        onClick={onClick}
+      >
+        {l.label}
+      </a>
+    );
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.solid : ""}`}>
@@ -39,14 +58,7 @@ export default function Nav() {
 
         <ul className={styles.links}>
           {LINKS.map((l) => (
-            <li key={l.id}>
-              <a
-                href={`#${l.id}`}
-                className={active === l.id ? styles.active : ""}
-              >
-                {l.label}
-              </a>
-            </li>
+            <li key={l.label}>{renderLink(l)}</li>
           ))}
         </ul>
 
@@ -74,14 +86,12 @@ export default function Nav() {
 
       {open && (
         <ul className={styles.mobileMenu}>
-          {LINKS.map((l) => (
-            <li key={l.id}>
-              <a href={`#${l.id}`} onClick={() => setOpen(false)}>
-                <span className={styles.mobileIdx}>
-                  {String(LINKS.indexOf(l) + 1).padStart(2, "0")}
-                </span>
-                {l.label}
-              </a>
+          {LINKS.map((l, i) => (
+            <li key={l.label}>
+              <span className={styles.mobileIdx}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              {renderLink(l, () => setOpen(false))}
             </li>
           ))}
         </ul>

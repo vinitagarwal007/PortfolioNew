@@ -2,7 +2,6 @@ import BootScreen from "./components/BootScreen";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Principles from "./components/Principles";
-import Architecture from "./components/Architecture";
 import Framework from "./components/Framework";
 import Experience from "./components/Experience";
 import DeepDives from "./components/DeepDives";
@@ -19,7 +18,6 @@ export default function Home() {
       <main>
         <Hero />
         <Principles />
-        <Architecture />
         <Framework />
         <Experience />
         <DeepDives />

@@ -10,7 +10,17 @@ export const siteUrl = "https://vinitagarwal.vercel.app";
 
 export const profile = {
   name: "Vinit Agarwal",
+
+  // Primary title — used for the page title, structured data and anywhere a
+  // single label is needed.
   role: "Distributed Systems Engineer",
+
+  // The badge cycles through all three.
+  titles: [
+    "Distributed Systems Engineer",
+    "System Architect",
+    "Software Developer",
+  ],
 
   // The one sentence the whole site is an argument for.
   headline:

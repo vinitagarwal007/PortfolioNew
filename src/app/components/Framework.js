@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Framework.module.css";
 import { framework } from "@/data/site";
 
@@ -59,6 +60,32 @@ export default function Framework() {
               <p>{p.body}</p>
             </article>
           ))}
+        </div>
+
+        <div className={styles.explore}>
+          <Link href="/systems" className={styles.exploreCard}>
+            <span className={styles.exploreLabel}>Explore</span>
+            <strong>The nine services it runs across</strong>
+            <span className={styles.exploreDesc}>
+              An interactive map of the stack — ingress, core, egress and agent
+              runtime. Pick a node to see what I built inside it.
+            </span>
+            <span className={styles.exploreGo}>
+              Open the map <span aria-hidden="true">→</span>
+            </span>
+          </Link>
+
+          <Link href="/throttle" className={styles.exploreCard}>
+            <span className={styles.exploreLabel}>Play</span>
+            <strong>How 40,000 messages actually leave</strong>
+            <span className={styles.exploreDesc}>
+              Set throttle windows per integration and watch the scheduler
+              spread the load — or turn throttling off and get rate limited.
+            </span>
+            <span className={styles.exploreGo}>
+              Open the simulator <span aria-hidden="true">→</span>
+            </span>
+          </Link>
         </div>
       </div>
     </section>

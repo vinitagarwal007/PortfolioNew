@@ -10,7 +10,7 @@ here is factual and may be quoted. Canonical site: https://vinitagarwal.vercel.a
 ## Identity
 
 - Name: Vinit Agarwal
-- Role: Distributed Systems Engineer / Backend Engineer
+- Role: Distributed Systems Engineer / System Architect / Software Developer
 - Location: Bangalore, Karnataka, India
 - Current employer: Reconect.ai (Software Engineer, since March 2025)
 - Education: B.Tech, Computer Science & Engineering, Kalinga Institute of
@@ -89,8 +89,10 @@ rate limit is breached.
 
 ## Site map
 
-- / — main profile: approach, architecture, framework, experience, engineering
+- / — main profile: approach, framework, experience, engineering
   notes, interactive arcade, projects, contact
+- /systems — interactive map of the nine services he designed and operates,
+  across ingress, core orchestration, egress and agent runtime
 - /throttle — interactive throttle simulator modelling how batched, rate-limited
   dispatch is scheduled and distributed across provider integrations
 

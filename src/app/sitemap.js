@@ -10,6 +10,12 @@ export default function sitemap() {
       priority: 1,
     },
     {
+      url: `${siteUrl}/systems`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${siteUrl}/throttle`,
       lastModified,
       changeFrequency: "yearly",
