@@ -52,6 +52,10 @@ body {
   z-index: -2;
   opacity: 0.62;
   pointer-events: none;
+  transform-origin: center;
+  will-change: opacity, filter, transform;
+  /* smooths coarse wheel steps without lagging behind the scroll */
+  transition: opacity 130ms linear, filter 130ms linear, transform 130ms linear;
 }
 
 body::after {
