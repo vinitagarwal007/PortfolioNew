@@ -1,0 +1,274 @@
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin: 28px 0 14px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--dim);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.legendItem i {
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+}
+
+.hint {
+  margin-left: auto;
+  color: var(--faint);
+  border: 1px dashed var(--line-hi);
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.mapScroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: radial-gradient(
+      900px 420px at 45% 30%,
+      rgba(139, 124, 255, 0.07),
+      transparent 70%
+    ),
+    rgba(11, 15, 20, 0.5);
+}
+
+.map {
+  display: block;
+  width: 100%;
+  min-width: 760px;
+  height: auto;
+}
+
+.edge {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 1.1;
+  transition: opacity 0.3s ease;
+}
+
+.flow {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  stroke-dasharray: 5 190;
+  stroke-linecap: round;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.flowOn {
+  opacity: 0.9;
+  animation: dash 2.6s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -195;
+  }
+}
+
+.node {
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.25s ease;
+}
+
+.node:hover {
+  transform-box: fill-box;
+}
+
+.dim {
+  opacity: 0.42;
+}
+
+.box {
+  fill: rgba(14, 19, 26, 0.94);
+  stroke-width: 1.2;
+  transition: stroke 0.25s ease;
+}
+
+.node:hover .box {
+  fill: rgba(20, 27, 36, 0.98);
+}
+
+.nodeName {
+  fill: var(--text);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.nodeSlug {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  opacity: 0.85;
+}
+
+.pulse {
+  animation: nodePulse 2.2s ease-in-out infinite;
+}
+
+@keyframes nodePulse {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+/* ---- detail ---- */
+
+.detail {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 1.6fr 0.9fr;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--panel);
+  animation: fadeUp 0.4s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.detailMain {
+  padding: 26px 28px;
+}
+
+.detailHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.detailHead h3 {
+  font-size: 1.34rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.detailLayer {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.detailSlug {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--faint);
+  border: 1px solid var(--line);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.summary {
+  color: var(--dim);
+  margin-bottom: 18px;
+  max-width: 66ch;
+}
+
+.built {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.built li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.94rem;
+  color: var(--text);
+  opacity: 0.92;
+}
+
+.built li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  border: 1px solid var(--accent);
+  background: var(--accent-dim);
+}
+
+.detailSide {
+  padding: 26px 24px;
+  border-left: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.014);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.metrics {
+  display: grid;
+  gap: 12px;
+}
+
+.metrics div {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid var(--line);
+}
+
+.metrics div:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.metrics span {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.metrics b {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: auto;
+}
+
+@media (max-width: 860px) {
+  .detail {
+    grid-template-columns: 1fr;
+  }
+  .detailSide {
+    border-left: none;
+    border-top: 1px solid var(--line);
+  }
+  .detailMain {
+    padding: 22px 20px;
+  }
+  .hint {
+    margin-left: 0;
+  }
+}

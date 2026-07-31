@@ -1,0 +1,47 @@
+.padRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.pad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 8px;
+  border: 1px solid var(--line);
+  border-bottom: 3px solid var(--line);
+  border-radius: 11px;
+  background: var(--panel);
+  color: var(--dim);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.18s, color 0.18s,
+    background 0.18s;
+}
+
+.pad i {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  background: var(--tint);
+}
+
+.pad:hover:not(:disabled),
+.pad:active:not(:disabled) {
+  color: var(--text);
+  border-color: var(--tint);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.pad:active:not(:disabled) {
+  transform: translateY(2px);
+  border-bottom-width: 1px;
+}
+
+.pad:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

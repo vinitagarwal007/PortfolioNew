@@ -1,0 +1,135 @@
+.board {
+  padding: 16px;
+}
+
+.slaBar {
+  position: relative;
+  height: 26px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.slaBar i {
+  display: block;
+  height: 100%;
+  transition: width 0.25s linear, background 0.4s;
+  opacity: 0.32;
+}
+
+.slaBar span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 11px;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--dim);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+}
+
+.node {
+  text-align: left;
+  padding: 12px 12px 11px;
+  border-radius: 11px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.02);
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  transition: border-color 0.2s, background 0.2s, transform 0.12s;
+}
+
+.nodeName {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text);
+}
+
+.zone {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--faint);
+}
+
+.state {
+  font-size: 0.68rem;
+  margin-top: 5px;
+  letter-spacing: 0.04em;
+}
+
+.up {
+  border-color: rgba(78, 225, 193, 0.28);
+}
+
+.up .state {
+  color: var(--accent);
+}
+
+.boot {
+  border-color: rgba(255, 196, 107, 0.4);
+  background: rgba(255, 196, 107, 0.06);
+}
+
+.boot .state {
+  color: var(--amber);
+}
+
+.down {
+  border-color: var(--rose);
+  background: rgba(255, 122, 138, 0.09);
+  cursor: pointer;
+  animation: alarm 1.1s ease-in-out infinite;
+}
+
+.down .state {
+  color: var(--rose);
+  font-weight: 600;
+}
+
+.down:hover {
+  background: rgba(255, 122, 138, 0.18);
+  transform: translateY(-2px);
+}
+
+@keyframes alarm {
+  50% {
+    box-shadow: 0 0 0 4px rgba(255, 122, 138, 0.12);
+  }
+}
+
+.ticker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--dim);
+}
+
+.ticker em {
+  margin-left: auto;
+  font-style: normal;
+  color: var(--faint);
+}
+
+.zoneAlert {
+  color: var(--amber);
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

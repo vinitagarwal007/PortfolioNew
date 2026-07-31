@@ -1,0 +1,285 @@
+/* Shared chrome for every arcade module. */
+
+.shell {
+  margin-top: 34px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(11, 15, 20, 0.6);
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  gap: 2px;
+  padding: 8px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.015);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  flex: none;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  padding: 9px 14px;
+  cursor: pointer;
+  color: var(--dim);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: var(--text);
+  background: var(--panel-hi);
+}
+
+.tabOn {
+  color: var(--text);
+  background: var(--panel-hi);
+  border-color: var(--line-hi);
+}
+
+.tabIcon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.tabText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.25;
+}
+
+.tabName {
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.tabKind {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.tabOn .tabKind {
+  color: var(--accent);
+}
+
+.stage {
+  padding: 22px;
+  min-height: 460px;
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.headText h3 {
+  font-size: 1.16rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.headText p {
+  color: var(--dim);
+  font-size: 0.9rem;
+  max-width: 62ch;
+  margin-top: 4px;
+}
+
+/* HUD */
+
+.hud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stat {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 7px 12px;
+  background: var(--panel);
+  min-width: 78px;
+}
+
+.stat span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.stat b {
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.good {
+  color: var(--accent);
+}
+.bad {
+  color: var(--rose);
+}
+.warnTone {
+  color: var(--amber);
+}
+
+/* Buttons */
+
+.btn {
+  border: 1px solid var(--line-hi);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 9px 16px;
+  font-size: 0.87rem;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, transform 0.18s;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--panel-hi);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btnPrimary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #04110d;
+  font-weight: 600;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background: #67ecd0;
+  color: #04110d;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.note {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--faint);
+  margin-top: 12px;
+}
+
+.explain {
+  margin-top: 18px;
+  border-top: 1px dashed var(--line);
+  padding-top: 14px;
+  color: var(--dim);
+  font-size: 0.88rem;
+  max-width: 78ch;
+}
+
+.explain b {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Canvas / board frame */
+
+.board {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: radial-gradient(
+      520px 300px at 50% 0%,
+      rgba(139, 124, 255, 0.08),
+      transparent 70%
+    ),
+    #080b0f;
+  overflow: hidden;
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: 340px;
+  touch-action: manipulation;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: rgba(6, 8, 11, 0.82);
+  backdrop-filter: blur(3px);
+  padding: 20px;
+}
+
+.overlay h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.overlay p {
+  color: var(--dim);
+  font-size: 0.9rem;
+  max-width: 44ch;
+  margin: 0 auto 16px;
+}
+
+.keys {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.key {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  border: 1px solid var(--line-hi);
+  border-bottom-width: 3px;
+  border-radius: 7px;
+  padding: 5px 10px;
+  color: var(--dim);
+}
+
+@media (max-width: 700px) {
+  .stage {
+    padding: 16px 14px;
+  }
+  .canvas {
+    height: 300px;
+  }
+}

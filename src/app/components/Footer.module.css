@@ -1,0 +1,41 @@
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 30px 0 40px;
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.name {
+  font-family: var(--mono);
+  font-size: 0.86rem;
+}
+
+.line {
+  font-size: 0.8rem;
+  color: var(--faint);
+  margin-top: 3px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--dim);
+}
+
+.right a:hover {
+  color: var(--accent);
+}
+
+.year {
+  color: var(--faint);
+}
