@@ -6,6 +6,7 @@ import { profile } from "@/data/site";
 
 const LINKS = [
   { id: "systems", label: "Systems" },
+  { id: "framework", label: "Framework" },
   { id: "work", label: "Work" },
   { id: "engineering", label: "Engineering" },
   { id: "arcade", label: "Arcade" },

@@ -9,7 +9,7 @@ export const profile = {
   role: "Distributed Systems Engineer",
   tagline: "I build the plumbing that stays up when everything else spikes.",
   blurb:
-    "Backend engineer at Reconect.ai. I design and own distributed communication infrastructure — a service mesh that pushes 10M+ API calls a day across 8 telecom providers, with idempotency, throttling and delivery guarantees baked in rather than bolted on.",
+    "Backend engineer at Reconect.ai. I designed the communication framework that 10M+ API calls a day pass through — 8+ provider integrations normalised behind one static interface, so the systems calling it never decide how anything gets sent.",
   location: "Bhubaneswar / Remote, India",
   email: "vinitagarwal.garg@gmail.com",
   resume:
@@ -31,9 +31,221 @@ export const profile = {
 export const stats = [
   { value: "10M+", label: "API calls / day", note: "communication service" },
   { value: "9", label: "services owned", note: "bootstrapped end to end" },
-  { value: "8", label: "telecom providers", note: "one polymorphic engine" },
+  { value: "8+", label: "integrations", note: "one static interface" },
   { value: "139k", label: "lines shipped", note: "713 commits, 14 months" },
 ];
+
+// ---------------------------------------------------------------------------
+// The communication framework — the headline piece of design work
+// ---------------------------------------------------------------------------
+
+export const framework = {
+  eyebrow: "Designed and built from scratch",
+  title: "One static interface. Eight providers. The caller never knows which.",
+  lede: "The communication layer's real job was never sending messages — it was abstraction. I designed a framework that normalises every provider's routing, payload shape, auth scheme and delivery semantics behind one static interface. Systems that use it don't decide anything: they call it, and the orchestration is handled underneath.",
+
+  pillars: [
+    {
+      title: "A single static contract",
+      body: "Every provider implements the same interface — dispatch, template resolution, delivery-receipt normalisation, error mapping. The core pipeline holds no vendor branches at all; the implementation is selected at runtime by key.",
+    },
+    {
+      title: "Provider-wise mapping to standard system variables",
+      body: "Eight-plus integrations, each with its own dialect, get mapped provider-by-provider onto one canonical set of system variables and one processing path. Downstream code reads the same fields no matter who sent them.",
+    },
+    {
+      title: "Orchestration lives below the line",
+      body: "Batching, throttling to each vendor's TPS ceiling, retries, callback correlation and status roll-up all happen inside the framework. The caller says what to send, never how to send it.",
+    },
+    {
+      title: "Plug and play, both directions",
+      body: "A brand-new provider is an implementation plus a config model and a mapping — nothing in the routing changes. An already-integrated provider for a new client is credentials in a config screen: zero code, zero deploy.",
+    },
+  ],
+
+  // Illustrative payload shapes: the point is that they disagree with each
+  // other, and that the canonical output does not.
+  providers: [
+    {
+      name: "Meta WhatsApp",
+      transport: "Deeply nested JSON webhook",
+      auth: "App secret + signature",
+      raw: `{
+  "entry": [{
+    "changes": [{
+      "value": {
+        "statuses": [{
+          "id": "wamid.HBgMOTE5…",
+          "status": "delivered",
+          "timestamp": "1781794951",
+          "recipient_id": "919204441162"
+        }]
+      }
+    }]
+  }]
+}`,
+      canonical: {
+        provider: "meta",
+        channel: "whatsapp",
+        reference: "wamid.HBgMOTE5…",
+        recipient: "+919204441162",
+        event: "DELIVERED",
+        reason: null,
+        retryable: false,
+      },
+    },
+    {
+      name: "Kaleyra",
+      transport: "Flat JSON",
+      auth: "API key header",
+      raw: `{
+  "id": "kly_9f31c0a7",
+  "status": "DELIVRD",
+  "to": "+919204441162",
+  "delivered_on": "2026-06-14 11:02:31",
+  "error_code": null
+}`,
+      canonical: {
+        provider: "kaleyra",
+        channel: "sms",
+        reference: "kly_9f31c0a7",
+        recipient: "+919204441162",
+        event: "DELIVERED",
+        reason: null,
+        retryable: false,
+      },
+    },
+    {
+      name: "TCN",
+      transport: "Form-encoded POST",
+      auth: "Basic auth",
+      raw: `call_id=8831077
+&disposition=PTP
+&agent_id=bot-04
+&duration=71
+&hangup_cause=NORMAL_CLEARING`,
+      canonical: {
+        provider: "tcn",
+        channel: "voice",
+        reference: "8831077",
+        recipient: null,
+        event: "ANSWERED",
+        reason: "PTP",
+        retryable: false,
+      },
+    },
+    {
+      name: "ConVox",
+      transport: "JSON, vendor field names",
+      auth: "Static token",
+      raw: `{
+  "uniqueid": "1781794882.4471",
+  "dispo": "RNR",
+  "cust_no": "9204441162",
+  "call_duration": "0"
+}`,
+      canonical: {
+        provider: "convox",
+        channel: "voice",
+        reference: "1781794882.4471",
+        recipient: "+919204441162",
+        event: "FAILED",
+        reason: "NO_ANSWER",
+        retryable: true,
+      },
+    },
+    {
+      name: "Exotel",
+      transport: "Query-string callback",
+      auth: "Signed URL",
+      raw: `Status=completed
+&CallSid=6a1f0c9b8e
+&To=%2B919204441162
+&Duration=48
+&RecordingUrl=https%3A%2F%2F…`,
+      canonical: {
+        provider: "exotel",
+        channel: "voice",
+        reference: "6a1f0c9b8e",
+        recipient: "+919204441162",
+        event: "ANSWERED",
+        reason: null,
+        retryable: false,
+      },
+    },
+    {
+      name: "Intalk",
+      transport: "PascalCase JSON",
+      auth: "Bearer token",
+      raw: `{
+  "CallId": "IN-77120934",
+  "CallStatus": "NOANSWER",
+  "CustomerNumber": "919204441162",
+  "AttemptCount": 2
+}`,
+      canonical: {
+        provider: "intalk",
+        channel: "voice",
+        reference: "IN-77120934",
+        recipient: "+919204441162",
+        event: "FAILED",
+        reason: "NO_ANSWER",
+        retryable: true,
+      },
+    },
+    {
+      name: "Intalk CTC",
+      transport: "Click-to-call variant",
+      auth: "Bearer token",
+      raw: `{
+  "ctcRefId": "CTC-4410882",
+  "state": "CONNECTED",
+  "msisdn": "919204441162",
+  "legs": { "agent": "up", "customer": "up" }
+}`,
+      canonical: {
+        provider: "intalk_ctc",
+        channel: "voice",
+        reference: "CTC-4410882",
+        recipient: "+919204441162",
+        event: "ANSWERED",
+        reason: null,
+        retryable: false,
+      },
+    },
+    {
+      name: "Slice",
+      transport: "Enterprise envelope",
+      auth: "Vault-resolved bearer",
+      raw: `{
+  "event": {
+    "type": "CALL_LOG",
+    "payload": {
+      "loanCode": "L-8812004",
+      "callStatus": "ANSWERED",
+      "mobile": "9204441162"
+    }
+  }
+}`,
+      canonical: {
+        provider: "slice",
+        channel: "voice",
+        reference: "L-8812004",
+        recipient: "+919204441162",
+        event: "ANSWERED",
+        reason: null,
+        retryable: false,
+      },
+    },
+  ],
+
+  outcomes: [
+    ["8+", "integrations behind one interface"],
+    ["0", "vendor branches in the core pipeline"],
+    ["days", "to add a provider, not months"],
+    ["config only", "to enable an existing one"],
+  ],
+};
 
 // ---------------------------------------------------------------------------
 // Architecture map
@@ -81,7 +293,7 @@ export const services = [
     summary:
       "One edge service swallowing delivery receipts, WhatsApp replies and simulator callbacks from every vendor, and normalising them into a single canonical event.",
     built: [
-      "Thin-router ingress per vendor (Meta, Kaleyra, Exotel, Intalk, ConVox, Slice) with a static get_dlr_event mapper each — routing logic never learns vendor names.",
+      "Thin ingress routers per vendor (Meta, Kaleyra, Exotel, Intalk, ConVox, Slice), each implementing the same static mapping interface — the routing layer never learns a vendor's name.",
       "Every payload shape collapses into one DLR schema, so downstream billing sees identical events regardless of who sent them.",
       "Pathframe state tracking keyed by trigger id, correlating async vendor callbacks back to the originating bot session.",
     ],
@@ -102,9 +314,9 @@ export const services = [
     summary:
       "The monolith that owns campaign execution, communication batching, context assembly and analytics export. Every outbound call, SMS and WhatsApp message starts or ends here.",
     built: [
-      "BatchCommunicationHandler with channel-wise multiplexing and a dual-path pipeline: a fast path for single ad-hoc triggers, a batch path for everything else.",
-      "ThrottledCommunicationExecutor that splits huge trigger arrays into staggered sub-batches sized to each vendor's TPS ceiling.",
-      "Batch lifecycle APIs — status reporting without N+1, atomic cancellation under select_for_update, and redial that copies only retryable triggers into a new batch with clean lineage.",
+      "A batch handler with channel-wise multiplexing and a dual-path pipeline: a fast path for single ad-hoc triggers, a batch path for everything else.",
+      "A throttled executor that splits huge trigger arrays into staggered sub-batches sized to each vendor's TPS ceiling.",
+      "Batch lifecycle APIs — status reporting without N+1, atomic cancellation under row-level locks, and redial that copies only retryable triggers into a new batch with clean lineage.",
       "Context layer refactor: a single read facade, side-effect-free builders, and ORM models that never cross the API wire.",
     ],
     metrics: [
@@ -277,16 +489,17 @@ export const deepDives = [
   },
   {
     id: "registry",
-    title: "Adding a telecom provider without touching routing",
-    tag: "Strategy + Registry",
+    title: "The abstraction was the product",
+    tag: "Framework · designed from scratch",
     problem:
-      "Eight vendors, eight auth schemes, eight payload dialects, eight TPS ceilings. The naive version is an if/elif chain that every future engineer is afraid of.",
+      "Eight vendors, eight auth schemes, eight payload dialects, eight TPS ceilings. The naive version is an if/elif chain that every future engineer is afraid of — and every new client stalls a deal for months.",
     solution: [
-      "A base communication service with runtime selection keyed by a fully-qualified class path, so the core pipeline never learns a vendor's name.",
-      "A new provider is a subclass, a Pydantic config model, a registry entry and a callback route. Nothing in the job pipeline changes.",
-      "For providers already integrated, onboarding a client is credentials in a config screen — zero code, zero deploy.",
+      "I designed the communication framework end to end: a base service contract with implementations selected at runtime by key, so the core pipeline never learns a vendor's name.",
+      "Routing and data handling are normalised into one static interface — each provider maps its own dialect onto the same canonical system variables and the same processing path.",
+      "Calling systems don't orchestrate anything. They hand over a request; batching, throttling, retries and callback correlation are the framework's problem.",
+      "A new provider is an implementation, a config model and a mapping. An existing provider for a new client is credentials in a config screen — zero code, zero deploy.",
     ],
-    metric: "8 providers · 1 dispatch path · days, not months",
+    metric: "8+ integrations · 1 dispatch path · 0 vendor branches upstream",
   },
   {
     id: "throttle",
@@ -354,7 +567,8 @@ export const experience = [
     date: "Mar 2025 — Present",
     current: true,
     points: [
-      "Designed and led the end-to-end build of a communication service handling 10M+ API calls/day across 5 provider integrations, with DLR/callback pipelines and a provider-agnostic template platform.",
+      "Designed from scratch the plug-and-play communication framework behind 10M+ API calls/day — 8+ provider integrations whose routing, payload shapes and delivery semantics are normalised into one static interface, so calling systems orchestrate nothing.",
+      "Built the DLR and callback pipelines and a provider-agnostic template platform on top of that contract.",
       "Architected a distributed debounce system on Redis pipelines and atomic TTL ops, collapsing message bursts into single processed events across instances with no sticky sessions.",
       "Built a tenanted central schedule manager as the single source of truth for Celery Beat, with idempotent workers that self-terminate and purge cancelled jobs.",
       "Built the reporting and analytics subsystem from scratch — generation, email delivery, scheduling CRUD under atomic transactions, Metabase embedding; query hardening cut 40+ seconds of execution time.",

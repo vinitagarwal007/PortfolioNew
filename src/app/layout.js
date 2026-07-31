@@ -15,7 +15,7 @@ const mono = JetBrains_Mono({
 
 const title = "Vinit Agarwal — Distributed Systems Engineer";
 const description =
-  "Backend engineer building distributed communication infrastructure at scale — 10M+ API calls a day across 9 services, 8 telecom providers, one plug-and-play architecture.";
+  "Backend engineer building distributed communication infrastructure at scale — 10M+ API calls a day across 9 services, with 8+ provider integrations normalised behind one plug-and-play framework.";
 const preview =
   "https://res.cloudinary.com/drpl5yzbd/image/upload/v1723167988/unnamed_pwesqj.jpg";
 

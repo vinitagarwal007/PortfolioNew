@@ -1,6 +1,7 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Architecture from "./components/Architecture";
+import Framework from "./components/Framework";
 import Experience from "./components/Experience";
 import DeepDives from "./components/DeepDives";
 import Arcade from "./components/arcade/Arcade";
@@ -15,6 +16,7 @@ export default function Home() {
       <main>
         <Hero />
         <Architecture />
+        <Framework />
         <Experience />
         <DeepDives />
         <Arcade />
