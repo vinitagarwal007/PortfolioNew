@@ -55,12 +55,15 @@
   }
 }
 
+/* Always a single line: the vw term is tuned so "Vinit Agarwal" fits the
+   column at every width without wrapping or clipping. */
 .name {
-  font-size: clamp(3.1rem, 9vw, 5.4rem);
-  line-height: 0.94;
-  letter-spacing: -0.05em;
+  font-size: clamp(1.9rem, 6.4vw, 4.7rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
   font-weight: 600;
-  margin: 20px 0 14px;
+  margin: 18px 0 14px;
+  white-space: nowrap;
   background: linear-gradient(170deg, #ffffff 20%, #9fb4c4 100%);
   -webkit-background-clip: text;
   background-clip: text;

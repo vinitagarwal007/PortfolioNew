@@ -64,20 +64,16 @@ export default function Hero() {
     <section className={styles.hero} id="top">
       <div className={`wrap ${styles.inner}`}>
         <div className={styles.left}>
+          <h1 className="sr-only">
+            {profile.name} — {profile.role} based in {profile.location}
+          </h1>
+
           <p className={styles.badge}>
             <span className={styles.live} />
             {profile.role} · {profile.location}
           </p>
 
-          <h1 className={styles.name}>
-            Vinit{" "}
-            <br />
-            Agarwal
-            <span className="sr-only">
-              {" "}
-              — {profile.role} based in {profile.location}
-            </span>
-          </h1>
+          <h2 className={styles.name}>{profile.name}</h2>
 
           <p className={styles.headline}>{profile.headline}</p>
 
