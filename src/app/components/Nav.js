@@ -5,9 +5,11 @@ import useActiveSection from "../hooks/useActiveSection";
 import { profile } from "@/data/site";
 
 const LINKS = [
+  { id: "approach", label: "Approach" },
   { id: "systems", label: "Systems" },
-  { id: "work", label: "Work" },
-  { id: "engineering", label: "Engineering" },
+  { id: "framework", label: "Framework" },
+  { id: "work", label: "Path" },
+  { id: "engineering", label: "Notes" },
   { id: "arcade", label: "Arcade" },
   { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },

@@ -24,14 +24,15 @@ export default function Contact() {
           <div className={styles.left}>
             <p className="eyebrow">Get in touch</p>
             <h2 className="h2">
-              Building something that
+              If you&apos;re building something
               <br />
-              has to stay up?
+              that has to stay up.
             </h2>
             <p className="lede">
-              I&apos;m happiest somewhere near the queue, the retry policy and
-              the part everyone else is nervous about. If that&apos;s the shape
-              of your problem, say hello.
+              I&apos;m happiest near the queue, the retry policy and the part
+              everyone else is quietly nervous about. Whether you&apos;re hiring,
+              building something together, or just want to argue about
+              abstractions — I read everything and I reply.
             </p>
 
             <button className={styles.email} onClick={copyEmail}>
@@ -47,7 +48,7 @@ export default function Contact() {
               </div>
               <div>
                 <span>Open to</span>
-                <b>Backend / distributed systems roles</b>
+                <b>Roles, collaborations, and problems that sound hard</b>
               </div>
             </div>
 

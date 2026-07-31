@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e1620"/>
+      <stop offset="100%" stop-color="#070a0e"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4ee1c1"/>
+      <stop offset="100%" stop-color="#8b7cff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="15" fill="url(#bg)"/>
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="14.25" fill="none"
+        stroke="#4ee1c1" stroke-opacity="0.32" stroke-width="1.5"/>
+
+  <!-- VA monogram: a shared diagonal, so the V and A read as one mark -->
+  <g fill="none" stroke="url(#ink)" stroke-width="5.2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path d="M13 20 L23.5 44 L34 20"/>
+    <path d="M34 44 L43.5 20 L53 44"/>
+  </g>
+  <path d="M37.6 36.5 L49.4 36.5" stroke="url(#ink)" stroke-width="4.4"
+        stroke-linecap="round"/>
+
+  <!-- a node on the join: it is a distributed systems portfolio, after all -->
+  <circle cx="34" cy="20" r="3.4" fill="#4ee1c1"/>
+</svg>

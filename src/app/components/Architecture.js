@@ -46,13 +46,18 @@ export default function Architecture() {
   return (
     <section className="section" id="systems">
       <div className="wrap">
-        <p className="eyebrow">The system</p>
-        <h2 className="h2">Nine services, one nervous system.</h2>
+        <p className="eyebrow">What I actually work on</p>
+        <h2 className="h2">Nine services I designed, and still answer for.</h2>
         <p className="lede">
-          This is the communication stack I build and operate: inbound feeds,
-          a core orchestrator, egress gateways and a realtime agent runtime.
-          Pick a node — every one of them is something I designed, bootstrapped
-          or own end to end.
+          If you don&apos;t write software, here&apos;s the honest summary: when a
+          large company needs to reach a few hundred thousand customers by call,
+          SMS or WhatsApp, something has to decide who gets contacted, on which
+          channel, how fast, and then prove it happened. This is that something.
+        </p>
+        <p className={styles.ledeTech}>
+          For everyone else: inbound feeds, a core orchestrator, egress gateways
+          and a realtime agent runtime. Pick a node — each one is something I
+          designed, bootstrapped or own end to end.
         </p>
 
         <div className={styles.legend}>

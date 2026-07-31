@@ -10,11 +10,12 @@ export default function Experience() {
   return (
     <section className="section" id="work">
       <div className="wrap">
-        <p className="eyebrow">Track record</p>
-        <h2 className="h2">Where I&apos;ve been shipping.</h2>
+        <p className="eyebrow">The path so far</p>
+        <h2 className="h2">Where I learned all this.</h2>
         <p className="lede">
-          Three years of backend work, the last two spent inside a CPaaS stack
-          where the failure modes are other people&apos;s money.
+          Three years of backend work — the last two on a platform where the
+          failure modes involve other people&apos;s money, which is a fast way to
+          learn what &quot;reliable&quot; is supposed to mean.
         </p>
 
         <div className={styles.timeline}>
@@ -104,7 +105,10 @@ export default function Experience() {
             <div className={styles.skillGroups}>
               {skills.map((g) => (
                 <div key={g.group} className={styles.skillGroup}>
-                  <span className={styles.groupName}>{g.group}</span>
+                  <div className={styles.groupHead}>
+                    <span className={styles.groupName}>{g.group}</span>
+                    {g.note && <span className={styles.groupNote}>{g.note}</span>}
+                  </div>
                   <div className={styles.groupItems}>
                     {g.items.map((i) => (
                       <span key={i} className="chip">

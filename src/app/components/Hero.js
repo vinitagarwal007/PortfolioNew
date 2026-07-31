@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import styles from "./Hero.module.css";
-import NetworkCanvas from "./NetworkCanvas";
 import { profile, stats } from "@/data/site";
 import { GithubIcon, LinkedinIcon, MailIcon, MediumIcon } from "./icons";
 
@@ -63,39 +62,41 @@ export default function Hero() {
 
   return (
     <section className={styles.hero} id="top">
-      <NetworkCanvas className={styles.canvas} />
-      <div className={styles.fade} />
-
       <div className={`wrap ${styles.inner}`}>
         <div className={styles.left}>
-          <p className={styles.badge}>
-            <span className={styles.live} />
-            Software Engineer · Reconect.ai
-          </p>
-
-          <h1 className={styles.name}>
-            Vinit
-            <br />
-            Agarwal
+          <h1 className="sr-only">
+            {profile.name} — {profile.role} based in {profile.location}
           </h1>
 
+          <p className={styles.badge}>
+            <span className={styles.live} />
+            {profile.role} · {profile.location}
+          </p>
+
+          <h2 className={styles.name}>{profile.name}</h2>
+
+          <p className={styles.headline}>{profile.headline}</p>
+
           <p className={styles.typedLine}>
-            <span className={styles.typedPrefix}>I work on</span>{" "}
+            <span className={styles.typedPrefix}>Mostly:</span>{" "}
             <span className={styles.typed}>
               {typed}
               <span className={styles.caret} />
             </span>
           </p>
 
-          <p className={styles.blurb}>{profile.blurb}</p>
+          <p className={styles.plain}>
+            <span className={styles.plainLabel}>Without the jargon</span>
+            {profile.plain}
+          </p>
 
           <div className={styles.actions}>
-            <a className={styles.primary} href="#systems">
-              Explore the architecture
+            <a className={styles.primary} href="#approach">
+              How I work
               <span aria-hidden="true">→</span>
             </a>
             <a className={styles.ghost} href="#arcade">
-              Play something
+              Play something instead
             </a>
           </div>
 
