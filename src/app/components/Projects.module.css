@@ -99,6 +99,31 @@
   gap: 7px;
 }
 
+/* the one card that leads somewhere interactive */
+.cardFeature {
+  border-color: rgba(78, 225, 193, 0.3);
+  background: rgba(78, 225, 193, 0.04);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--tint);
+  border: 1px solid var(--tint);
+  border-radius: 9px;
+  padding: 8px 14px;
+  transition: gap 0.2s ease, background 0.2s ease;
+}
+
+.card:hover .cta {
+  gap: 12px;
+  background: rgba(78, 225, 193, 0.12);
+}
+
 @media (max-width: 760px) {
   .grid {
     grid-template-columns: 1fr;

@@ -44,10 +44,17 @@ export const framework = {
   title: "One static interface. Eight providers. The caller never knows which.",
   lede: "The communication layer's real job was never sending messages — it was abstraction. I designed a framework that normalises every provider's routing, payload shape, auth scheme and delivery semantics behind one static interface. Systems that use it don't decide anything: they call it, and the orchestration is handled underneath.",
 
+  contract:
+    "Each integration is free to do whatever its vendor demands internally — its own auth dance, its own endpoints, its own parsing. What it is not free to do is invent an output. Every implementation returns a defined Pydantic model, and that typed object is what the pipeline processes onward into the standard format the rest of the application already understands. A voice integration reporting call_completed becomes ANSWERED before it ever leaves the boundary; nothing upstream has ever heard of call_completed. That translation is the whole point of the abstraction.",
+
   pillars: [
     {
       title: "A single static contract",
-      body: "Every provider implements the same interface — dispatch, template resolution, delivery-receipt normalisation, error mapping. The core pipeline holds no vendor branches at all; the implementation is selected at runtime by key.",
+      body: "Every provider implements the same interface — dispatch, template resolution, delivery-receipt normalisation, error mapping. The implementation is selected at runtime by key, and the core pipeline holds no vendor branches at all.",
+    },
+    {
+      title: "Vendor methods in, typed models out",
+      body: "An integration may parse XML, chase a rotating session key or unwrap four levels of envelope — its business. It must return a defined Pydantic model, which the pipeline then processes into the one standard format every other part of the system reads.",
     },
     {
       title: "Provider-wise mapping to standard system variables",
@@ -237,6 +244,19 @@ export const framework = {
         retryable: false,
       },
     },
+  ],
+
+  // Many vendor vocabularies, one set of words the application actually knows.
+  vocabulary: [
+    {
+      from: ["completed", "call_completed", "ANSWERED"],
+      to: "ANSWERED",
+      tone: "good",
+    },
+    { from: ["delivered", "DELIVRD", "status=2"], to: "DELIVERED", tone: "good" },
+    { from: ["RNR", "NOANSWER", "no_answer"], to: "FAILED · NO_ANSWER", tone: "bad" },
+    { from: ["invalid_number", "BLOCKED", "carrier_reject"], to: "FAILED · terminal", tone: "bad" },
+    { from: ["timeout", "queue drop", "pre-call error"], to: "DROPPED · retryable", tone: "warn" },
   ],
 
   outcomes: [
@@ -667,7 +687,9 @@ export const projects = [
     context: "Reconect.ai · 2025–2026",
     desc: "A dynamic template engine that resolves placeholder variables from live DB context at send time — every message assembled per recipient, with provider-specific section constraints, trackable payment links and tenant-level caching with fallback.",
     tags: ["Python", "Redis", "Multi-tenant"],
-    href: "",
+    href: "/throttle",
+    internal: true,
+    cta: "Open the throttle simulator",
     accent: "var(--accent)",
   },
   {

@@ -100,6 +100,34 @@ export default function Framework() {
           </div>
         </div>
 
+        <div className={styles.contract}>
+          <div className={styles.contractText}>
+            <span className={styles.contractLabel}>The contract</span>
+            <p>{framework.contract}</p>
+          </div>
+
+          <div className={styles.vocab}>
+            <span className={styles.contractLabel}>Vendor vocabulary → system vocabulary</span>
+            <ul>
+              {framework.vocabulary.map((row) => (
+                <li key={row.to}>
+                  <span className={styles.vocabFrom}>
+                    {row.from.map((f) => (
+                      <code key={f}>{f}</code>
+                    ))}
+                  </span>
+                  <span className={styles.vocabArrow} aria-hidden="true">
+                    →
+                  </span>
+                  <span className={`${styles.vocabTo} ${styles[row.tone]}`}>
+                    {row.to}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
         <div className={styles.pillars}>
           {framework.pillars.map((p, i) => (
             <article key={p.title} className={styles.pillar}>

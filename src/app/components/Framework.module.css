@@ -238,6 +238,103 @@
   writing-mode: vertical-rl;
 }
 
+/* ---- contract + vocabulary ---- */
+
+.contract {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 16px;
+}
+
+.contractText,
+.vocab {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  padding: 20px 22px;
+}
+
+.contractLabel {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.contractText p {
+  color: var(--dim);
+  font-size: 0.93rem;
+}
+
+.vocab ul {
+  list-style: none;
+  display: grid;
+  gap: 9px;
+}
+
+.vocab li {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--line);
+}
+
+.vocab li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.vocabFrom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.vocabFrom code {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--faint);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 2px 6px;
+  white-space: nowrap;
+}
+
+.vocabArrow {
+  color: var(--faint);
+  font-size: 0.8rem;
+}
+
+.vocabTo {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  white-space: nowrap;
+  border-radius: 6px;
+  padding: 3px 9px;
+}
+
+.good {
+  color: var(--accent);
+  background: rgba(78, 225, 193, 0.1);
+}
+
+.bad {
+  color: var(--rose);
+  background: rgba(255, 122, 138, 0.1);
+}
+
+.warn {
+  color: var(--amber);
+  background: rgba(255, 196, 107, 0.1);
+}
+
 /* ---- pillars ---- */
 
 .pillars {
@@ -259,6 +356,11 @@
 .pillar:hover {
   border-color: var(--line-hi);
   transform: translateY(-2px);
+}
+
+/* an odd last card would sit alone in the left column — let it span instead */
+.pillar:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }
 
 .pillarNum {
@@ -306,6 +408,19 @@
   }
   .pillars {
     grid-template-columns: 1fr;
+  }
+  .contract {
+    grid-template-columns: 1fr;
+  }
+  .vocab li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .vocabArrow {
+    display: none;
+  }
+  .vocabTo {
+    justify-self: start;
   }
 }
 
