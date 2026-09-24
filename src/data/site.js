@@ -408,6 +408,10 @@ export const deepDives = [
       "Late arrivals extend the window instead of spawning a second job, so the agent replies once to the whole thought.",
     ],
     metric: "1 event per burst · N instances · 0 affinity",
+    article: {
+      title: "Teaching a Bot to Wait",
+      href: "https://medium.com/@vinitagarwal007/teaching-a-bot-to-wait-5b531f941dd6",
+    },
   },
   {
     id: "registry",
@@ -422,6 +426,10 @@ export const deepDives = [
       "A new provider is an implementation, a config model and a mapping. An existing provider for a new client is credentials in a config screen — zero code, zero deploy.",
     ],
     metric: "8+ integrations · 1 dispatch path · 0 vendor branches upstream",
+    article: {
+      title: "Multiple Vendors, One Console",
+      href: "https://medium.com/@vinitagarwal007/multiple-vendors-one-console-f12b7d21b84c",
+    },
   },
   {
     id: "throttle",

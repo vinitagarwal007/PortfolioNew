@@ -88,7 +88,17 @@ export default function Home() {
                   <p className="label">{d.tag}</p>
                   <h3>{d.title}</h3>
                   <p>{d.problem}</p>
-                  <p className={styles.metricLine}>{d.metric}</p>
+                  <div className={styles.cardFoot}>
+                    <p className={styles.metricLine}>{d.metric}</p>
+                    {d.article && (
+                      <p className={styles.read}>
+                        <span className="label">Medium</span>
+                        <a href={d.article.href} target="_blank" rel="noopener noreferrer">
+                          {d.article.title}
+                        </a>
+                      </p>
+                    )}
+                  </div>
                 </li>
               ))}
             </ul>

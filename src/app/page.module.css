@@ -156,6 +156,20 @@
   background: var(--bg);
 }
 
+.cardFoot {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.read {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 12px;
+  font-size: var(--fs-mono);
+}
+
 .metricLine {
   color: var(--accent);
   font-family: var(--mono);
