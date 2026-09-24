@@ -1,13 +1,12 @@
 import "./globals.css";
-import { Inter, JetBrains_Mono } from "next/font/google";
-import CircuitCanvas from "./components/CircuitCanvas";
+import { Newsreader, JetBrains_Mono } from "next/font/google";
 import { StructuredData } from "./structured-data";
 import { siteUrl } from "@/data/site";
 
-const inter = Inter({
+const serif = Newsreader({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-sans",
+  variable: "--font-serif",
 });
 
 const mono = JetBrains_Mono({
@@ -15,6 +14,11 @@ const mono = JetBrains_Mono({
   display: "swap",
   variable: "--font-mono",
 });
+
+// Runs before first paint: stored choice first, then the OS preference. With
+// no stored choice it keeps following the OS live. Exposes window.__setTheme
+// for the header toggle. Hex values mirror --bg in globals.css.
+const themeScript = `(function(){var d=document.documentElement,m=matchMedia("(prefers-color-scheme: light)"),c={dark:"#0B0C0E",light:"#F6F5F1"};function stored(){try{var t=localStorage.getItem("theme");return t==="light"||t==="dark"?t:null}catch(e){return null}}function apply(){var t=stored()||(m.matches?"light":"dark");d.setAttribute("data-theme",t);var e=document.querySelector('meta[name="theme-color"]');if(e)e.setAttribute("content",c[t])}window.__setTheme=function(t){try{localStorage.setItem("theme",t)}catch(e){}apply()};apply();m.addEventListener("change",apply)})();`;
 
 const title = "Vinit Agarwal — Distributed Systems Engineer, Bangalore";
 const description =
@@ -94,20 +98,21 @@ export const metadata = {
   },
 };
 
-export const viewport = {
-  themeColor: "#06080b",
-};
-
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${mono.variable}`}>
+    <html
+      lang="en"
+      className={`${serif.variable} ${mono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
+        {/* Rendered by hand rather than via `viewport.themeColor` so the
+            inline script can point it at an explicit user choice. */}
+        <meta name="theme-color" content="#0B0C0E" />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <StructuredData />
       </head>
-      <body className={inter.className}>
-        <CircuitCanvas className="site-bg" />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

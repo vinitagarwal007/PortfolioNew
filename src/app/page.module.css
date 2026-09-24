@@ -1,0 +1,298 @@
+/* ---------------------------------------------------------------- header */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+}
+
+.headerInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 32px;
+  row-gap: 4px;
+  padding-block: 10px;
+}
+
+.name {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+}
+
+.headerEnd {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 24px);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(14px, 2.4vw, 28px);
+}
+
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ink-2);
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+.toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.toggle:hover {
+  border-color: var(--ink);
+}
+
+/* -------------------------------------------------------------- sections */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section {
+  padding-block: var(--rhythm);
+}
+
+.ruled {
+  border-top: 1px solid var(--rule);
+}
+
+.lede {
+  max-width: 620px;
+}
+
+/* ------------------------------------------------------------------ hero */
+
+.hero {
+  padding-block: var(--rhythm);
+}
+
+.hero .stack {
+  gap: 28px;
+}
+
+.claim {
+  max-width: 940px;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  font-size: var(--fs-mono);
+}
+
+/* --------------------------------------------------------- metric strip */
+
+.metrics {
+  border-block: 1px solid var(--rule);
+  padding-block: clamp(28px, 4vw, 44px);
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 28px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.figure {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+/* ------------------------------------------------------- selected systems */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+/* prose row takes the slack so metric lines align across a row of cards */
+.card {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 14px;
+  padding: clamp(24px, 3vw, 36px);
+  background: var(--bg);
+}
+
+.metricLine {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------------ path */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  column-gap: 32px;
+  row-gap: 6px;
+  padding-block: 24px;
+  border-top: 1px solid var(--rule);
+}
+
+.rowMain {
+  display: flex;
+  flex: 1 1 32ch;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rowNote {
+  max-width: 620px;
+  padding-top: 8px;
+}
+
+.date {
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------- toolbox */
+
+.toolbox {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 4px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-2);
+  font-family: var(--mono);
+  font-size: var(--fs-label);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------- contact */
+
+.email {
+  align-self: flex-start;
+  max-width: 100%;
+  color: var(--ink);
+  font-size: clamp(18px, 2.6vw, 30px);
+  font-weight: 400;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+}
+
+.email:hover {
+  border-bottom-color: var(--accent);
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  padding-top: 8px;
+}
+
+.pair {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pair dd {
+  color: var(--ink);
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  font-size: var(--fs-mono);
+}
+
+.socials a,
+.links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* ---------------------------------------------------------------- footer */
+
+.footer {
+  border-top: 1px solid var(--rule);
+}
+
+.footerInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 20px;
+  font-size: var(--fs-label);
+}
+
+.footerInner a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}

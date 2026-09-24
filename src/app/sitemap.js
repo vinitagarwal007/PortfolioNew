@@ -9,17 +9,5 @@ export default function sitemap() {
       changeFrequency: "monthly",
       priority: 1,
     },
-    {
-      url: `${siteUrl}/systems`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/throttle`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.7,
-    },
   ];
 }

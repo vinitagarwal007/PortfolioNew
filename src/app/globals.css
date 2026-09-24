@@ -1,212 +1,138 @@
-:root {
-  --bg: #06080b;
-  --bg-soft: #0b0f14;
-  --panel: rgba(255, 255, 255, 0.028);
-  --panel-hi: rgba(255, 255, 255, 0.055);
-  --line: rgba(255, 255, 255, 0.09);
-  --line-hi: rgba(255, 255, 255, 0.18);
-
-  --text: #e8eef5;
-  --dim: #94a3b3;
-  --faint: #66727f;
-
-  --accent: #4ee1c1;
-  --accent-dim: rgba(78, 225, 193, 0.14);
-  --violet: #8b7cff;
-  --amber: #ffc46b;
-  --rose: #ff7a8a;
-
-  --max: 1180px;
-  --radius: 14px;
-  --mono: var(--font-mono), ui-monospace, "SFMono-Regular", Menlo, Consolas,
-    monospace;
+/* Design tokens. Dark is the default; the inline script in layout.js sets
+   data-theme on <html> before first paint. Components read var(--x) only. */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b0c0e;
+  --ink: #edeae2;
+  --ink-2: #c7c3b8;
+  --muted: #8b8a84;
+  --rule: #23262c;
+  --accent: #e2946c;
 }
 
-* {
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f6f5f1;
+  --ink: #16150f;
+  --ink-2: #3e3c33;
+  --muted: #6b6860;
+  --rule: #dcd8cc;
+  --accent: #9c4221;
+}
+
+:root {
+  --serif: var(--font-serif), Georgia, serif;
+  --mono: var(--font-mono), ui-monospace, Menlo, Consolas, monospace;
+
+  --column: 1080px;
+  --gutter: clamp(24px, 6vw, 100px);
+  --rhythm: clamp(56px, 7vw, 96px);
+
+  --fs-h1: clamp(36px, 5.1vw, 66px);
+  --fs-h2: clamp(28px, 3.4vw, 40px);
+  --fs-h3: clamp(21px, 20.25px + 0.19vw, 23px);
+  --fs-prose: clamp(15px, 13.6px + 0.36vw, 19px);
+  --fs-mono: clamp(12px, 11.6px + 0.1vw, 13px);
+  --fs-label: clamp(11px, 10.6px + 0.1vw, 12px);
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 html {
-  color-scheme: dark;
-  scroll-behavior: smooth;
-  scroll-padding-top: 84px;
+  scroll-padding-top: 7rem;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background: var(--bg);
-  color: var(--text);
-  max-width: 100vw;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+  color: var(--ink-2);
+  font-family: var(--serif);
+  font-size: var(--fs-prose);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* the circuit board, drifting packets and all, sits behind every page */
-.site-bg {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  opacity: 0.62;
-  pointer-events: none;
-  transform-origin: center;
-  will-change: opacity, filter, transform;
-  /* smooths coarse wheel steps without lagging behind the scroll */
-  transition: opacity 130ms linear, filter 130ms linear, transform 130ms linear;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: radial-gradient(
-      600px 400px at 15% -5%,
-      rgba(78, 225, 193, 0.09),
-      transparent 70%
-    ),
-    radial-gradient(
-      700px 500px at 90% 5%,
-      rgba(139, 124, 255, 0.08),
-      transparent 70%
-    );
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-input,
-textarea,
-select {
-  font: inherit;
-  color: inherit;
-}
-
-::selection {
-  background: rgba(78, 225, 193, 0.28);
-}
-
-/* ---- shared primitives ---- */
-
-.wrap {
-  width: 100%;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 22px;
-}
-
-.section {
-  padding: 96px 0;
-  position: relative;
-}
-
-.eyebrow {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.eyebrow::before {
-  content: "";
-  width: 22px;
-  height: 1px;
-  background: var(--accent);
-  opacity: 0.6;
-}
-
-.h2 {
-  font-size: clamp(1.9rem, 4.6vw, 2.7rem);
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-  margin: 14px 0 12px;
-  font-weight: 600;
-}
-
-.lede {
-  color: var(--dim);
-  max-width: 62ch;
-  font-size: 1.02rem;
-}
-
-.card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-
-.mono {
-  font-family: var(--mono);
-}
-
-/* available to assistive tech and crawlers, invisible on screen */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.chip {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  padding: 4px 9px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  color: var(--dim);
-  background: var(--panel);
-  white-space: nowrap;
-}
-
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 6px;
-}
-
-.thin-scroll::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-.thin-scroll::-webkit-scrollbar-thumb {
-  background: var(--line-hi);
-  border-radius: 8px;
-}
-.thin-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+@media (prefers-reduced-motion: no-preference) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
+    transition: background-color 200ms ease, color 200ms ease,
+      border-color 200ms ease, text-decoration-color 200ms ease;
   }
 }
 
-@media (max-width: 700px) {
-  .section {
-    padding: 68px 0;
-  }
+h1,
+h2,
+h3 {
+  color: var(--ink);
+  font-family: var(--serif);
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  line-height: 1.07;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: var(--accent);
+  font-family: var(--mono);
+  text-decoration-line: underline;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* The one mono label style: eyebrows, captions, dates, kickers. */
+.label {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: var(--fs-label);
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.wrap {
+  width: 100%;
+  max-width: calc(var(--column) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }

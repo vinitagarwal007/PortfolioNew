@@ -89,12 +89,8 @@ rate limit is breached.
 
 ## Site map
 
-- / — main profile: approach, framework, experience, engineering
-  notes, interactive arcade, projects, contact
-- /systems — interactive map of the nine services he designed and operates,
-  across ingress, core orchestration, egress and agent runtime
-- /throttle — interactive throttle simulator modelling how batched, rate-limited
-  dispatch is scheduled and distributed across provider integrations
+- / — single-page profile: headline figures, engineering notes, experience,
+  toolbox, contact
 
 ## Availability
 

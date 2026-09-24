@@ -1,9 +1,8 @@
 # Portfolio — Vinit Agarwal
 
-A portfolio built around one idea: show the distributed systems work instead of
-describing it. Interactive architecture map, engineering case studies, and an
-arcade of small games and sandboxes that model the real problems — routing,
-failure, hashing, debouncing.
+A single, minimalist page: headline figures, engineering notes, experience,
+toolbox and contact. Server-rendered throughout; the only client component is
+the theme toggle.
 
 Live: [vinitagarwal.vercel.app](https://vinitagarwal.vercel.app)
 
@@ -19,20 +18,18 @@ Then open [http://localhost:3000](http://localhost:3000).
 
 ```
 src/
-  data/site.js                  all copy: services, experience, projects, skills
+  data/site.js                  all copy: profile, stats, notes, experience, skills
   app/
-    components/                 sections (Hero, Architecture, Experience, …)
-      NetworkCanvas.js          ambient cluster animation behind the hero
-      arcade/
-        PacketRouter.js         canvas arcade game — route packets to providers
-        ChaosMonkey.js          keep the fleet above its SLA
-        HashRing.js             consistent hashing sandbox
-        DebounceLab.js          Redis-style burst collapsing
-        Shell.js                interactive résumé shell
+    layout.js                   fonts, SEO metadata, no-flash theme script
+    globals.css                 design tokens (dark/light via data-theme) + type
+    page.js                     the whole page, as a server component
+    page.module.css             section layout
+    ThemeToggle.js              the one client component
+    structured-data.js          schema.org Person graph
 ```
 
-Everything is written from scratch — no chart, animation or carousel libraries.
-The only dependencies are Next.js and React.
+The only dependencies are Next.js and React. Fonts (Newsreader, JetBrains Mono)
+are self-hosted through `next/font`.
 
 ## Editing content
 
