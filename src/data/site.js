@@ -483,6 +483,32 @@ export const deepDives = [
     ],
     metric: "−40s query time · 100k+ row reports in SLA",
   },
+  {
+    id: "template-sync",
+    title: "A template sync engine that thinks in diffs",
+    tag: "Abstraction · git-style diff",
+    problem:
+      "Message templates live in two places: in our system, and at Meta. The sync engine builds a diff matrix between the current state and the expected state — the same idea as a git diff — and turns every difference into an action. Each action then runs independently of the others.",
+    solution: [
+      "A diff matrix compares the current state of each template with its expected state.",
+      "Every difference becomes a discrete action, generated from the diff rather than written by hand.",
+      "Actions execute independently of one another.",
+    ],
+    metric: "current vs expected · diff matrix · independent actions",
+  },
+  {
+    id: "prompt-engine",
+    title: "No master prompt",
+    tag: "Voice AI · shared context",
+    problem:
+      "I helped build a state-based prompt engine for our voice agents. Instead of one master prompt, the prompt changes with the state of the conversation — in effect, a multi-agent system working from a shared context.",
+    solution: [
+      "The prompt is selected by the current state of the conversation.",
+      "There is no single master prompt carrying every instruction.",
+      "Each state behaves like its own agent, and all of them share one conversation context.",
+    ],
+    metric: "state-driven prompts · shared context · multi-agent",
+  },
 ];
 
 // ---------------------------------------------------------------------------

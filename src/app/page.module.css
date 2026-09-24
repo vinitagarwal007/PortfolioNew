@@ -156,6 +156,15 @@
   background: var(--bg);
 }
 
+/* an odd card out spans the row, so no empty cell shows the --rule backing */
+.card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.card > p {
+  max-width: 620px;
+}
+
 .cardFoot {
   display: flex;
   flex-direction: column;

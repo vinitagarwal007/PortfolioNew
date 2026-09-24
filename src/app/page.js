@@ -8,7 +8,7 @@ const NAV = [
   { href: "#contact", label: "Contact" },
 ];
 
-const SYSTEMS = ["registry", "debounce", "throttle", "reports"].map((id) =>
+const SYSTEMS = ["registry", "debounce", "throttle", "reports", "template-sync", "prompt-engine"].map((id) =>
   deepDives.find((d) => d.id === id)
 );
 
