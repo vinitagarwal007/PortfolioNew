@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
 import ThemeToggle from "./ThemeToggle";
-import { profile, stats, deepDives, experience, skills } from "@/data/site";
+import { profile, stats, deepDives, fieldNotes, experience, skills } from "@/data/site";
 
 const NAV = [
   { href: "#systems", label: "Notes" },
@@ -105,7 +105,35 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="path" className={`${styles.section} ${styles.ruled}`} aria-labelledby="path-title">
+        <section id="field-notes" className={`${styles.section} ${styles.ruled}`} aria-labelledby="field-title">
+          <div className={`wrap ${styles.stack}`}>
+            <p className="label">From LinkedIn</p>
+            <h2 id="field-title">Knowing what&apos;s running underneath it.</h2>
+            <ol className={styles.path}>
+              {fieldNotes.map((n) => (
+                <li key={n.title} className={styles.row}>
+                  <div className={styles.rowMain}>
+                    <h3>{n.title}</h3>
+                    <p className={styles.rowNote}>{n.summary}</p>
+                    <p className={styles.metricLine}>{n.metric}</p>
+                  </div>
+                  <p className={`label ${styles.date}`}>{n.date}</p>
+                </li>
+              ))}
+            </ol>
+            <p className={styles.links}>
+              <a
+                href={`${profile.socials.linkedin}/recent-activity/all/`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                More on LinkedIn
+              </a>
+            </p>
+          </div>
+        </section>
+
+        <section id="path"className={`${styles.section} ${styles.ruled}`} aria-labelledby="path-title">
           <div className={`wrap ${styles.stack}`}>
             <p className="label">The path so far</p>
             <h2 id="path-title">Where I learned all this.</h2>

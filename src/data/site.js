@@ -425,7 +425,7 @@ export const deepDives = [
       "Calling systems don't orchestrate anything. They hand over a request; batching, throttling, retries and callback correlation are the framework's problem.",
       "A new provider is an implementation, a config model and a mapping. An existing provider for a new client is credentials in a config screen — zero code, zero deploy.",
     ],
-    metric: "8+ integrations · 1 dispatch path · 0 vendor branches upstream",
+    metric: "8+ integrations · 0 vendor branches upstream · onboarding: days → minutes",
     article: {
       title: "Multiple Vendors, One Console",
       href: "https://medium.com/@vinitagarwal007/multiple-vendors-one-console-f12b7d21b84c",
@@ -498,16 +498,44 @@ export const deepDives = [
   },
   {
     id: "prompt-engine",
-    title: "No master prompt",
-    tag: "Voice AI · shared context",
+    title: "Scope is the control surface",
+    tag: "Voice AI · state-based prompts",
     problem:
-      "I helped build a state-based prompt engine for our voice agents. Instead of one master prompt, the prompt changes with the state of the conversation — in effect, a multi-agent system working from a shared context.",
+      "One master prompt decays as scope grows; splitting it across agents adds handoff latency a live call can't afford. I helped build a framework above the LLM endpoint that decides the conversation's state and hands the model only that state's prompt and context — so guardrails are structural, not instructional.",
     solution: [
-      "The prompt is selected by the current state of the conversation.",
-      "There is no single master prompt carrying every instruction.",
-      "Each state behaves like its own agent, and all of them share one conversation context.",
+      "The framework, not the model, decides what state the conversation is in.",
+      "The model sees only the prompt for that state; everything out of scope stays out of view.",
+      "Context is filtered the same way — each prompt gets only the context it's meant to use.",
     ],
-    metric: "state-driven prompts · shared context · multi-agent",
+    metric: "no master prompt · token spend down ~⅓",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// From LinkedIn — condensed from posts published Aug 2026
+// ---------------------------------------------------------------------------
+
+export const fieldNotes = [
+  {
+    date: "Aug 2026",
+    title: "The day a one-line database default beat our entire application layer",
+    summary:
+      "An API took 10+ minutes for one slice of data on a billion-row table. The code and indexes were fine; the planner was reasoning from stale statistics, because Postgres only re-analyzes after 10% of a table changes — 100 million rows.",
+    metric: "10+ min → seconds · EXPLAIN ANALYZE is evidence",
+  },
+  {
+    date: "Aug 2026",
+    title: "A day of reading perfect code. The bug was underneath it.",
+    summary:
+      "Rows went missing while bulk inserts reported success: ignore_conflicts compiles to ON CONFLICT DO NOTHING, and UUIDv4s were colliding on shared virtual CPUs short on entropy. The fix was UUIDv7.",
+    metric: "UUIDv4 → UUIDv7 · read the SQL your ORM writes",
+  },
+  {
+    date: "Aug 2026",
+    title: "Context belongs to the person, not the channel",
+    summary:
+      "Across WhatsApp and live calls at tens of thousands of messages a day, a customer's memory has to be one timeline, forget on purpose, and recall instantly. Contradictions now get resolved at the gate instead of travelling downstream.",
+    metric: "one timeline per person · resolution rates up",
   },
 ];
 
